@@ -4,11 +4,16 @@ import Product from "./Product";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const [page, setPages] = useState(0);
+
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
+    fetch(`https://dummyjson.com/products?limit=30&skip=${page * 30}`)
       .then((res) => res.json())
-      .then((res) => setProducts(res.products));
-  }, []);
+      .then((res) => {
+        setProducts(res.products); // use `res.products`, not full `res`
+      })
+      .catch((err) => console.error("Error fetching products:", err));
+  }, [page]);
 
   console.log(products);
   return (
@@ -35,6 +40,27 @@ export default function Products() {
             />
           );
         })}
+      </div>
+      <div
+        style={{
+          margin: "2rem",
+        }}
+      >
+        <button
+          onClick={() => {
+            setPages(page - 1);
+          }}
+        >
+          {" "}
+          <i className="fa-solid fa-arrow-left-long"></i> Prev
+        </button>
+        <button
+          onClick={() => {
+            setPages(page + 1);
+          }}
+        >
+          Next <i className="fa-solid fa-arrow-right-long"></i>{" "}
+        </button>
       </div>
     </div>
   );
