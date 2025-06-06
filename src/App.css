@@ -46,3 +46,115 @@ margin: 1rem auto;
   background-color: transparent;
   padding: 0.8rem;
 }
+.main-container{
+  width: 90%;
+  margin:auto;
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.main-container > div{
+  max-width: 400px;
+}
+.main-container div img{
+  width: 100%;
+  
+}
+/****************************************************/
+.products{
+  text-align: center;
+}
+.products > h3{
+  color : green;
+  font-family: cursive;
+  font-size: 2rem;
+}
+.products > p{
+  color: gray;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 2rem auto;
+}
+.products-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+ 
+}
+.product{
+  max-width: 300px;
+  border-radius: 10px;
+border: 2px solid rgb(190, 188, 188);
+   text-align: center;
+   font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+}
+.products-container img{
+  width: 90%;
+  border-radius: 10px;
+
+  background-color: rgb(251, 232, 219);
+
+ 
+
+  ;
+}
+.discount{
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.discount i{
+  border: green 2px solid;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+    position: relative;
+  right: -2rem;
+  bottom: 0.5rem;
+  background-color: white;
+
+
+}
+.discount span{
+  position: relative;
+  left: -3.5rem;
+  bottom: 1rem;
+ font-size: 0.7rem;
+ padding: 5px;
+  background-color: orange;
+}
+.discount p{
+  position: relative;
+  bottom: 1rem;
+  background-color: green;
+  font-size: 1rem;
+  color: white;
+  padding: 6px;
+}
+
+.product h6, .product>span{
+  font-style: oblique;
+  font-size: 1.2rem;
+  color: rgb(54, 53, 53);
+  font-weight: 100;
+
+}
+.product h6{
+  background-color: black;
+  color: white;
+}
+.product> span{
+  font-size: 0.8rem;
+  color: black;
+}
+.product h3{
+  color: green;
+  
+
+}
+
