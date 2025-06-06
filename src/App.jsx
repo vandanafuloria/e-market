@@ -6,11 +6,13 @@ import "./App.css";
 import HeroContainer from "./ui/HeroContainer";
 
 function App() {
+  const [search, setSearch] = useState(""); // state lifiting and transfer to siblling
+  console.log(search);
   return (
     <>
-      <Header />
+      <Header search={search} setSearch={setSearch} />
       <HeroContainer />
-      <Products />
+      <Products search={search} setSearch={setSearch} />
     </>
   );
 }

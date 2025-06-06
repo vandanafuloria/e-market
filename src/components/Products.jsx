@@ -2,20 +2,24 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Product from "./Product";
 
-export default function Products() {
+export default function Products({ search, setSearch }) {
   const [products, setProducts] = useState([]);
   const [page, setPages] = useState(0);
 
+  const searching = `https://dummyjson.com/products/search?q=${search}`;
+  const normal = `https://dummyjson.com/products?limit=30&skip=${page * 30}`;
+
+  const URL = search.trim() === "" ? normal : searching;
+
   useEffect(() => {
-    fetch(`https://dummyjson.com/products?limit=30&skip=${page * 30}`)
+    fetch(URL)
       .then((res) => res.json())
       .then((res) => {
         setProducts(res.products); // use `res.products`, not full `res`
       })
       .catch((err) => console.error("Error fetching products:", err));
-  }, [page]);
+  }, [page, search]);
 
-  console.log(products);
   return (
     <div className="products">
       <h3>Our Featured Products</h3>

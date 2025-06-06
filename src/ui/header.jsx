@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({ search, setSearch }) {
   return (
     <div className="main-header">
       <div className="header-top">
@@ -18,7 +18,14 @@ export default function Header() {
       <header>
         <h1>VegeFoods</h1>
         <div className="search-bar">
-          <input type="search" placeholder="Its a click away! " />
+          <input
+            type="search"
+            placeholder="Its a click away! "
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
       </header>

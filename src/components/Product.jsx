@@ -8,7 +8,6 @@ export default function Product({
   rating,
   availability,
 }) {
-  console.log(rating, title, img);
   return (
     <div className="product">
       <div className="discount">
