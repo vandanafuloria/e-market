@@ -1,0 +1,48 @@
+*{
+  margin: auto;
+ box-sizing: border-box;
+}
+/*************** UTILITIES *****************************/
+
+.header-top{
+  display: flex;
+  justify-content: space-between;
+  background-color: greenyellow;
+  
+}
+.header-top span{
+  margin: 5px 10px;
+  
+}
+.header-top i{
+  color: gray;
+}
+.main-header header{
+display: flex;
+justify-content: space-between;
+margin: 1rem auto;
+
+}
+.main-header header h1{
+  flex-basis: 20%;
+}
+.main-header header div{
+  flex-basis: 70%;
+
+}
+.main-header header div{
+  display: flex;
+  gap: 1rem;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+  
+}
+.main-header header input{
+  width: 90%;
+  font-size: 0.7rem;
+  outline: none;
+  color: white;
+  border: transparent;
+  background-color: transparent;
+  padding: 0.8rem;
+}
