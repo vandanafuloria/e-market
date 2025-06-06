@@ -28,7 +28,50 @@ export default function Products({ search, setSearch }) {
         Far far away, behind the word mountains, far from the countries Vokalia
         and Consonantia
       </p>
-
+      <div className="catagory">
+        <button
+          onClick={() => {
+            setSearch("phone");
+          }}
+        >
+          Phone
+        </button>
+        <button
+          onClick={() => {
+            setSearch("laptop");
+          }}
+        >
+          Laptop
+        </button>
+        <button
+          onClick={() => {
+            setSearch("fragrance");
+          }}
+        >
+          Perfume
+        </button>
+        <button
+          onClick={() => {
+            setSearch("watch");
+          }}
+        >
+          Watch
+        </button>
+        <button
+          onClick={() => {
+            setSearch("headphone");
+          }}
+        >
+          Headphone
+        </button>
+        <button
+          onClick={() => {
+            setSearch("dress");
+          }}
+        >
+          Dress
+        </button>
+      </div>
       <div className="products-container">
         {products.map((product) => {
           return (
