@@ -1,3 +1,4 @@
+import Rating from "../ui/Rating";
 export default function Product({
   img,
   title,
@@ -22,6 +23,9 @@ export default function Product({
       <h6>{title}</h6>
       <span>{brand}</span>
       <h3> ${price}</h3>
+      <div>
+        <Rating rating={rating} />
+      </div>
       {/* <p>
         Read more <i className="fa-solid fa-arrow-right"></i>
       </p> */}
