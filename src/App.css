@@ -60,7 +60,23 @@ margin: 1rem auto;
 
   flex-shrink: 0;
 
-  background-color: goldenrod;
+ 
+   display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.tags div {
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  background-color: pink;
+}
+.tags button{
+  border: transparent;
+  background-color: transparent;
+  font-size: 1rem;
+  
+
 }
 
 
