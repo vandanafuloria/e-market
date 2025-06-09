@@ -47,26 +47,30 @@ margin: 1rem auto;
   padding: 0.8rem;
 }
 .main-container{
-  width: 90%;
-  
-  margin:auto;
   display: flex;
-  justify-content: space-around;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-.main-container > div{
-  max-width: 400px;
+  height: 100vh;
+  overflow-y: auto;
 
 }
-.main-container div img{
-  width: 400px;
-  height: 300px;
-  
+.tags{
+  position: sticky;
+  top: 0;
+  height: 100vh; /**  height is most imporitant here*/
+  width: 250px;
+
+  flex-shrink: 0;
+
+  background-color: goldenrod;
 }
+
+
 /****************************************************/
 .products{
   text-align: center;
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  height: 100vh;
   background-color: rgb(242, 242, 242);
 }
 .products > h3{

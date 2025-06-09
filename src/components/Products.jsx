@@ -2,7 +2,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Product from "./Product";
 
-export default function Products({ search, setSearch }) {
+export default function Products({
+  search,
+  setSearch,
+  setCategories,
+  categories,
+}) {
   const [products, setProducts] = useState([]);
   const [page, setPages] = useState(0);
 
@@ -19,6 +24,19 @@ export default function Products({ search, setSearch }) {
       })
       .catch((err) => console.error("Error fetching products:", err));
   }, [page, search]);
+
+  const tags = `https://dummyjson.com/products?limit=999`;
+  useEffect(() => {
+    fetch(tags)
+      .then((res) => res.json())
+      .then((res) => {
+        const SettingCategories = new Set();
+        res.products.forEach((product) => {
+          SettingCategories.add(product.category);
+        });
+        setCategories(Array.from(SettingCategories));
+      });
+  }, []);
 
   return (
     <div className="products">
