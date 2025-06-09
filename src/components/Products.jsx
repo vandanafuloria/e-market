@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Product from "./Product";
+import Tag from "../ui/Tag";
 
 export default function Products({
   search,
@@ -9,6 +10,8 @@ export default function Products({
   categories,
   products,
   setProducts,
+  tags,
+  setTags,
 }) {
   const [page, setPages] = useState(0);
 
@@ -26,9 +29,9 @@ export default function Products({
       .catch((err) => console.error("Error fetching products:", err));
   }, [page, search]);
 
-  const tags = `https://dummyjson.com/products?limit=999`;
+  const tag = `https://dummyjson.com/products?limit=999`;
   useEffect(() => {
-    fetch(tags)
+    fetch(tag)
       .then((res) => res.json())
       .then((res) => {
         const SettingCategories = new Set();
@@ -41,8 +44,13 @@ export default function Products({
 
   return (
     <div className="products">
+      <div className="tagsName">
+        {tags.map((tag) => {
+          return <Tag text={tag} tags={tags} setTags={setTags} />;
+        })}
+      </div>
       <h3>Our Featured Products</h3>
-      <h1>Products</h1>
+
       <p>
         Far far away, behind the word mountains, far from the countries Vokalia
         and Consonantia

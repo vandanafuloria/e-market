@@ -9,6 +9,7 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState(""); // state lifiting and transfer to siblling
   const [products, setProducts] = useState([]);
+  const [tags, setTags] = useState([]);
 
   console.log(categories);
 
@@ -20,6 +21,8 @@ function App() {
           categories={categories}
           products={products}
           setProducts={setProducts}
+          setTags={setTags}
+          tags={tags}
         />
         <Products
           search={search}
@@ -28,6 +31,8 @@ function App() {
           categories={categories}
           products={products}
           setProducts={setProducts}
+          tags={tags}
+          setTags={setTags}
         />
       </div>
     </>

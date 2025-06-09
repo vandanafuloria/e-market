@@ -1,3 +1,4 @@
+import logo from "../assets/logo.png";
 export default function Header({ search, setSearch }) {
   return (
     <div className="main-header">
@@ -16,7 +17,8 @@ export default function Header({ search, setSearch }) {
         </div>
       </div>
       <header>
-        <h1>VegeFoods</h1>
+        <img src={logo} />
+
         <div className="search-bar">
           <input
             type="search"
@@ -28,6 +30,9 @@ export default function Header({ search, setSearch }) {
           />
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
+        <span>
+          <i className="fa-solid fa-cart-shopping"></i>
+        </span>
       </header>
     </div>
   );

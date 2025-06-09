@@ -1,7 +1,14 @@
 import { useEffect } from "react";
 
-export default function Categories({ categories, setProducts, products }) {
+export default function Categories({
+  categories,
+  setProducts,
+  products,
+  setTags,
+  tags,
+}) {
   function handleCategoryClick(type) {
+    // this function working on category function
     fetch(`https://dummyjson.com/products?limit=999`)
       .then((res) => res.json())
       .then((res) => {
@@ -17,7 +24,14 @@ export default function Categories({ categories, setProducts, products }) {
       {categories.map((type) => {
         return (
           <div>
-            <button onClick={() => handleCategoryClick(type)}>{type}</button>
+            <button
+              onClick={() => {
+                handleCategoryClick(type);
+                setTags([...tags, type]);
+              }}
+            >
+              {console.log(tags)} {type}
+            </button>
           </div>
         );
       })}

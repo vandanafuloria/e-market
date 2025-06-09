@@ -1,21 +1,30 @@
 *{
   margin: auto;
  box-sizing: border-box;
+ font-family: monospace;
 }
 /*************** UTILITIES *****************************/
 
+:root{
+  --gradientBackground:  #E2005F;
+       --gradient: linear-gradient(-45deg, rgba(226, 0, 95, 1) 0%, rgba(188, 1, 112, 0.9) 50%, rgba(175, 6, 110, 0.9) 99%);
+}
 .header-top{
   display: flex;
   justify-content: space-between;
-  background-color: greenyellow;
+  background: var(--gradientBackground);
+  background: var(--gradient);
+  padding: 1rem;
+  color: white;
   
 }
 .header-top span{
   margin: 5px 10px;
+  cursor: pointer;
   
 }
 .header-top i{
-  color: gray;
+  color: white;
 }
 .main-header header{
 display: flex;
@@ -23,8 +32,10 @@ justify-content: space-between;
 margin: 1rem auto;
 
 }
-.main-header header h1{
-  flex-basis: 20%;
+.main-header header img{
+ 
+  width: 100px;
+  height: 100px;
 }
 .main-header header div{
   flex-basis: 70%;
@@ -35,6 +46,7 @@ margin: 1rem auto;
   gap: 1rem;
   background-color: rgb(230, 230, 230);
   border-radius: 10px;
+   border: 0.5px solid var(--gradientBackground);
   
 }
 .main-header header input{
@@ -43,8 +55,12 @@ margin: 1rem auto;
   outline: none;
   color: white;
   border: transparent;
+ 
   background-color: transparent;
   padding: 0.8rem;
+}
+.main-header header div i{
+  color: var(--gradientBackground);
 }
 .main-container{
   display: flex;
@@ -52,11 +68,16 @@ margin: 1rem auto;
   overflow-y: auto;
 
 }
+header span i {
+  font-size: 40px;
+  color: var(--gradientBackground)
+}
 .tags{
   position: sticky;
   top: 0;
   height: 100vh; /**  height is most imporitant here*/
-  width: 250px;
+  width: 150px;
+  padding: 10px;
 
   flex-shrink: 0;
 
@@ -64,17 +85,23 @@ margin: 1rem auto;
    display: flex;
   flex-direction: column;
   gap: 1rem;
+  
 }
 .tags div {
   background-color: white;
   width: 100%;
-  text-align: center;
-  background-color: pink;
+  text-align: left;
+  border-bottom: #E2005F 1px solid;
+
 }
 .tags button{
   border: transparent;
   background-color: transparent;
-  font-size: 1rem;
+  font-size: 0.8rem;
+ 
+  padding: 0.4rem;
+  color: var(--gradientBackground);
+  border-radius: 10px;
   
 
 }
@@ -90,7 +117,7 @@ margin: 1rem auto;
   background-color: rgb(242, 242, 242);
 }
 .products > h3{
-  color : green;
+  color: var(--gradientBackground);
   font-family: cursive;
   font-size: 2rem;
 }
@@ -110,7 +137,7 @@ margin: 1rem auto;
 .product{
   max-width: 300px;
   border-radius: 10px;
-border: 2px solid rgb(190, 188, 188);
+border: 0.5px solid var(--gradientBackground);
 background-color: white;
    text-align: center;
    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -121,7 +148,7 @@ background-color: white;
   width: 90%;
   border-radius: 10px;
 
-  background-color: rgb(251, 232, 219);
+  background-color: rgba(175, 6, 110, 0.09);
 
  
 
@@ -139,7 +166,7 @@ background-color: white;
   font-size: 1rem;
   font-weight: 500;
     position: relative;
-  right: -2rem;
+  right: -3rem;
   bottom: 0.5rem;
   background-color: white;
 
@@ -170,7 +197,8 @@ background-color: white;
 
 }
 .product h6{
-  background-color: black;
+background: var(--gradientBackground);
+background: var(--gradient);
   color: white;
 }
 .product> span{
