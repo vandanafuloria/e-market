@@ -27,7 +27,7 @@ export default function Products({
         setProducts(res.products); // use `res.products`, not full `res`
       })
       .catch((err) => console.error("Error fetching products:", err));
-  }, [page, search]);
+  }, [page, search, tags]);
 
   const tag = `https://dummyjson.com/products?limit=999`;
   useEffect(() => {
