@@ -1,7 +1,9 @@
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Header from "./ui/header";
 import Products from "./components/Products";
 import Categories from "./components/Categories";
+
+import { BASE_URL } from "./constants";
 
 import "./App.css";
 
@@ -9,30 +11,101 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState(""); // state lifiting and transfer to siblling
   const [products, setProducts] = useState([]);
-  const [tags, setTags] = useState([]);
+  const [filters, setFilters] = useState([]);
+  const [page, setPages] = useState(0);
 
-  console.log(categories);
+  /*
+
+
+
+    Header : Searching (need in api call)
+    Categories : Categories (api call)
+    Products : (api call)
+
+  */
+
+  // const handleProductFetched(products) {
+
+  // }
+
+  console.log({ products });
+
+  const handleCategoryFilterAdded = (category) => {
+    setFilters([...filters, category]);
+  };
+
+  const handleCategoryFilterRemoved = (category) => {
+    setFilters(filters.filter((cate) => cate !== category));
+  };
+
+  const handlePageChange = (page) => {
+    setPages(page);
+  };
+
+  const handleSearch = (keyword) => {
+    setPages(0);
+    setSearch(keyword);
+  };
+
+  useEffect(() => {
+    if (filters.length > 0) return;
+
+    const url = `${BASE_URL}products/search?q=${search}&limit=10&skip=${
+      page * 10
+    }`;
+    console.log("calling url " + url);
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        setProducts(res.products); // use `res.products`, not full `res`
+      })
+      .catch((err) => console.error("Error fetching products:", err));
+  }, [page, search, filters]);
+
+  useEffect(() => {
+    /*
+      [fil1, fil2, fil3]
+
+    */
+    if (filters.length === 0) return;
+    // [f1, f2, f3]
+    Promise.all(
+      filters.map((filter) =>
+        fetch(`${BASE_URL}products/category/${filter}`)
+          .then((res) => res.json())
+          .then((res) => res.products)
+      )
+    ).then((res) => {
+      const allProducts = [];
+      res.forEach((prods) => allProducts.push(...prods));
+      setProducts(allProducts);
+    });
+
+    // [Promise1, Promise2, Promise3]
+    // Promise.all(r).then((res) => console.log(res));
+  }, [filters]);
+
+  useEffect(() => {
+    fetch(`${BASE_URL}products/category-list`)
+      .then((res) => res.json())
+      .then((categories) => setCategories(categories));
+  }, []);
 
   return (
     <>
-      <Header search={search} setSearch={setSearch} />
+      <Header search={search} onSearch={handleSearch} />
       <div className="main-container">
         <Categories
           categories={categories}
-          products={products}
-          setProducts={setProducts}
-          setTags={setTags}
-          tags={tags}
+          onSelected={handleCategoryFilterAdded}
         />
         <Products
-          search={search}
-          setSearch={setSearch}
-          setCategories={setCategories}
-          categories={categories}
           products={products}
-          setProducts={setProducts}
-          tags={tags}
-          setTags={setTags}
+          filters={filters}
+          onFilterRemoved={handleCategoryFilterRemoved}
+          page={page}
+          onPageChange={handlePageChange}
         />
       </div>
     </>

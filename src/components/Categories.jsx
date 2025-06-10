@@ -1,36 +1,16 @@
 import { useEffect } from "react";
 
-export default function Categories({
-  categories,
-  setProducts,
-  products,
-  setTags,
-  tags,
-}) {
-  function handleCategoryClick(type) {
-    // this function working on category function
-    fetch(`https://dummyjson.com/products?limit=999`)
-      .then((res) => res.json())
-      .then((res) => {
-        const filtered = res.products.filter(
-          (product) => product.category === type
-        );
-        setProducts(filtered); // ✅ update with filtered products
-      });
-  }
-
+export default function Categories({ categories, onSelected }) {
   return (
     <div className="tags">
-      {categories.map((type) => {
+      {categories.map((category) => {
         return (
           <div>
             <button
-              onClick={() => {
-                handleCategoryClick(type);
-                setTags([...tags, type]);
-              }}
+              style={{ cursor: "pointer" }}
+              onClick={() => onSelected(category)}
             >
-              {console.log(tags)} {type}
+              {category}
             </button>
           </div>
         );

@@ -51,9 +51,9 @@ margin: 1rem auto;
 }
 .main-header header input{
   width: 90%;
-  font-size: 0.7rem;
+  font-size: 1.2rem;
   outline: none;
-  color: white;
+  color: black;
   border: transparent;
  
   background-color: transparent;

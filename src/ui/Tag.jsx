@@ -1,19 +1,9 @@
-export default function Tag({ text, tags, setTags }) {
-  {
-    console.log("this is tag", text);
-  }
+export default function Tag({ name, onClick }) {
   return (
     <span>
       <button style={{ margin: 5 }}>
-        {text}{" "}
-        <i
-          onClick={() => {
-            const newTags = tags.filter((tag) => tag != text);
-            setTags(newTags);
-          }}
-          className="fa-solid fa-xmark"
-          t
-        ></i>
+        <span>{name}</span>
+        <i onClick={() => onClick(name)} className="fa-solid fa-xmark"></i>
       </button>
     </span>
   );

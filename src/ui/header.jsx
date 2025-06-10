@@ -1,5 +1,5 @@
 import logo from "../assets/logo.png";
-export default function Header({ search, setSearch }) {
+export default function Header({ search, onSearch }) {
   return (
     <div className="main-header">
       <div className="header-top">
@@ -25,7 +25,7 @@ export default function Header({ search, setSearch }) {
             placeholder="Its a click away! "
             value={search}
             onChange={(e) => {
-              setSearch(e.target.value);
+              onSearch(e.target.value);
             }}
           />
           <i class="fa-solid fa-magnifying-glass"></i>
