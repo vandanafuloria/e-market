@@ -37,17 +37,14 @@ margin: 1rem auto;
   width: 100px;
   height: 100px;
 }
-.main-header header div{
-  flex-basis: 70%;
 
-}
-.main-header header div{
+.search-bar{
   display: flex;
   gap: 1rem;
   background-color: rgb(230, 230, 230);
   border-radius: 10px;
    border: 0.5px solid var(--gradientBackground);
-  
+  flex-basis: 70%;  
 }
 .main-header header input{
   width: 90%;
@@ -159,7 +156,7 @@ background-color: white;
   justify-content: space-between;
  
 }
-.discount i{
+.discount button{
   border: green 2px solid;
   padding: 5px;
   border-radius: 5px;
@@ -210,6 +207,7 @@ background: var(--gradient);
   
 
 }
+
 .catagory{
   background-color: green;
   display: flex;
@@ -224,3 +222,18 @@ background: var(--gradient);
   background-color: transparent;
 }
 
+
+.cart-logo {
+  position: relative;
+}
+.cart-logo .counter{
+  font-size: 1.3rem;
+  position: absolute;
+  right: -50%;
+  top: -50%;
+  background:var(--gradient);
+  border-radius: 50%;
+  padding: 5px;
+  color: white;
+
+}

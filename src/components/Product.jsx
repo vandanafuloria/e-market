@@ -8,15 +8,17 @@ export default function Product({
   price,
   rating,
   availability,
+  onAddToCart,
 }) {
   return (
     <div className="product">
       <div className="discount">
-        {" "}
         <span>{discount}%</span>
         <p>{availability}</p>
-        <i className="fa-solid fa-plus"></i>
-      </div>{" "}
+        <button onClick={onAddToCart}>
+          <i className="fa-solid fa-plus"></i>
+        </button>
+      </div>
       <div className="img">
         <img src={img[0]} />
       </div>

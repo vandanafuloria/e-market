@@ -1,9 +1,11 @@
-import { use, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import Header from "./ui/header";
 import Products from "./components/Products";
 import Categories from "./components/Categories";
 
 import { BASE_URL } from "./constants";
+
+import CartContext from "./context/CartContext";
 
 import "./App.css";
 
@@ -13,6 +15,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState([]);
   const [page, setPages] = useState(0);
+  const [cart, setCart] = useState([]);
 
   /*
 
@@ -27,15 +30,17 @@ function App() {
   // const handleProductFetched(products) {
 
   // }
-
-  console.log({ products });
-
   const handleCategoryFilterAdded = (category) => {
     setFilters([...filters, category]);
   };
 
   const handleCategoryFilterRemoved = (category) => {
     setFilters(filters.filter((cate) => cate !== category));
+  };
+
+  const handleAddToCart = (product) => {
+    console.log("adding to cart");
+    setCart((prev) => [...prev, product]);
   };
 
   const handlePageChange = (page) => {
@@ -93,8 +98,8 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Header search={search} onSearch={handleSearch} />
+    <CartContext value={{ cartCount: cart.length, handleAddToCart }}>
+      <Header search={search} onSearch={handleSearch} cartCount={cart.length} />
       <div className="main-container">
         <Categories
           categories={categories}
@@ -106,9 +111,10 @@ function App() {
           onFilterRemoved={handleCategoryFilterRemoved}
           page={page}
           onPageChange={handlePageChange}
+          onAddToCart={handleAddToCart}
         />
       </div>
-    </>
+    </CartContext>
   );
 }
 

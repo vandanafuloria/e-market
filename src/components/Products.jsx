@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import Product from "./Product";
 import Tag from "../ui/Tag";
+import CartContext from "../context/CartContext";
 
 export default function Products({
   products,
@@ -9,7 +10,9 @@ export default function Products({
   onFilterRemoved,
   page,
   onPageChange,
+  onAddToCart,
 }) {
+  const { handleAddToCart } = useContext(CartContext);
   return (
     <div className="products">
       <div className="tagsName">
@@ -36,6 +39,7 @@ export default function Products({
               price={product.price}
               rating={product.rating}
               availability={product.availabilityStatus}
+              onAddToCart={() => handleAddToCart(product)}
             />
           );
         })}

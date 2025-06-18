@@ -1,5 +1,6 @@
 import logo from "../assets/logo.png";
-export default function Header({ search, onSearch }) {
+import Cart from "../components/Cart";
+export default function Header({ search, onSearch, cartCount }) {
   return (
     <div className="main-header">
       <div className="header-top">
@@ -30,9 +31,8 @@ export default function Header({ search, onSearch }) {
           />
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-        <span>
-          <i className="fa-solid fa-cart-shopping"></i>
-        </span>
+
+        <Cart itemCount={cartCount} />
       </header>
     </div>
   );
