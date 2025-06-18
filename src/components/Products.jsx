@@ -31,6 +31,7 @@ export default function Products({
         {products.map((product) => {
           return (
             <Product
+              key={product.id}
               img={product.images}
               title={product.title}
               brand={product.brand}

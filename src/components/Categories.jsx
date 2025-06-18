@@ -3,9 +3,9 @@ import { useEffect } from "react";
 export default function Categories({ categories, onSelected }) {
   return (
     <div className="tags">
-      {categories.map((category) => {
+      {categories.map((category, index) => {
         return (
-          <div>
+          <div key={index}>
             <button
               style={{ cursor: "pointer" }}
               onClick={() => onSelected(category)}
