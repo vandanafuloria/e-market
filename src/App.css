@@ -237,3 +237,23 @@ background: var(--gradient);
   color: white;
 
 }
+.tagsName{
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px;
+}
+.tagsName div{
+  margin:0;
+  align-items: center;
+
+
+}
+.tagsName div button {
+  border-radius: 10px;
+  border:var(--gradientBackground) 1px solid;
+}
+.tagsName i {
+  margin: 5px;
+  color: red;
+    cursor: pointer;
+}

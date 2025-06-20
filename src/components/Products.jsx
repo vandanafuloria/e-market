@@ -10,14 +10,14 @@ export default function Products({
   onFilterRemoved,
   page,
   onPageChange,
-  onAddToCart,
 }) {
+  console.log(filters);
   const { handleAddToCart } = useContext(CartContext);
   return (
     <div className="products">
       <div className="tagsName">
         {filters.map((tag) => (
-          <Tag name={tag} onClick={onFilterRemoved} />
+          <Tag name={tag.name} onClick={() => onFilterRemoved(tag.key)} />
         ))}
       </div>
       <h3>Our Featured Products</h3>

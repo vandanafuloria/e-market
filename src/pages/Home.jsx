@@ -16,6 +16,7 @@ function Home() {
   const [filters, setFilters] = useState([]);
   const [page, setPages] = useState(0);
   const [cart, setCart] = useState([]);
+  console.log(filters);
 
   /*
 
@@ -30,12 +31,16 @@ function Home() {
   // const handleProductFetched(products) {
 
   // }
-  const handleCategoryFilterAdded = (category) => {
-    setFilters([...filters, category]);
+  const handleCategoryFilterAdded = (category, key) => {
+    const exists = filters.some((filter) => filter.key === key);
+    if (exists) return;
+
+    const filtering = { name: category, key: key };
+    setFilters([...filters, filtering]);
   };
 
-  const handleCategoryFilterRemoved = (category) => {
-    setFilters(filters.filter((cate) => cate !== category));
+  const handleCategoryFilterRemoved = (key) => {
+    setFilters(filters.filter((cate) => cate.key !== key));
   };
 
   const handleAddToCart = (product) => {
@@ -77,7 +82,7 @@ function Home() {
     // [f1, f2, f3]
     Promise.all(
       filters.map((filter) =>
-        fetch(`${BASE_URL}products/category/${filter}`)
+        fetch(`${BASE_URL}products/category/${filter.name}`)
           .then((res) => res.json())
           .then((res) => res.products)
       )

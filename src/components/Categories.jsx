@@ -8,7 +8,7 @@ export default function Categories({ categories, onSelected }) {
           <div key={index}>
             <button
               style={{ cursor: "pointer" }}
-              onClick={() => onSelected(category)}
+              onClick={() => onSelected(category, index)}
             >
               {category}
             </button>
