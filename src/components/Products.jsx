@@ -7,7 +7,6 @@ import { useNavigate } from "react-router";
 import { ProductContext } from "../pages/ProductContext";
 
 export default function Products() {
-  const { handleAddToCart } = useContext(CartContext);
   const navigate = useNavigate();
   const { onPageChange, page, handleCategoryFilterRemoved, filters, products } =
     useContext(ProductContext);
@@ -27,11 +26,6 @@ export default function Products() {
         ))}
       </div>
       <h3>Our Featured Products</h3>
-
-      <p>
-        Far far away, behind the word mountains, far from the countries Vokalia
-        and Consonantia
-      </p>
 
       <div className="products-container">
         {products.map((product) => {

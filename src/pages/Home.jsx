@@ -12,14 +12,12 @@ import "../App.css";
 
 function Home() {
   const {
-    products,
     handleProductsFetched,
     cart,
     filters,
     search,
     page,
-    categories,
-    handleAddToCart,
+
     handleSetCategories,
   } = useContext(ProductContext);
 

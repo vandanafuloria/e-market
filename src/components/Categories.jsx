@@ -1,9 +1,9 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
+import sidebar from "../assets/sidebar.png";
 import { ProductContext } from "../pages/ProductContext";
 
 export default function Categories() {
   const { categories, handleCategoryFilterAdded } = useContext(ProductContext);
-  console.log(...categories);
 
   return (
     <div className="tags">
@@ -14,7 +14,7 @@ export default function Categories() {
               style={{ cursor: "pointer" }}
               onClick={() => handleCategoryFilterAdded(category, index)}
             >
-              {category}
+              {category.toUpperCase()}
             </button>
           </div>
         );

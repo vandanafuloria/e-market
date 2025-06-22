@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router";
 import Rating from "../ui/Rating";
+import { ProductContext } from "./ProductContext";
 export default function ProductDetail() {
   const location = useLocation();
   const { product } = location.state;
 
   const [liked, setLiked] = useState(false);
-
-  console.log(product);
+  const { cart, handleAddToCart } = useContext(ProductContext);
 
   return (
     <>
@@ -21,7 +21,11 @@ export default function ProductDetail() {
             ></i>
             <img src={product.images[0]} />
             <div className="cart">
-              <div>
+              <div
+                onClick={() => {
+                  handleAddToCart(product);
+                }}
+              >
                 <span>
                   <i className="fa-solid fa-cart-shopping"></i>
                 </span>
