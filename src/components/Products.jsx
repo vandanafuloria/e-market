@@ -4,25 +4,26 @@ import Product from "./Product";
 import Tag from "../ui/Tag";
 import CartContext from "../context/CartContext";
 import { useNavigate } from "react-router";
+import { ProductContext } from "../pages/ProductContext";
 
-export default function Products({
-  products,
-  filters,
-  onFilterRemoved,
-  page,
-  onPageChange,
-}) {
+export default function Products() {
   const { handleAddToCart } = useContext(CartContext);
   const navigate = useNavigate();
+  const { onPageChange, page, handleCategoryFilterRemoved, filters, products } =
+    useContext(ProductContext);
 
   const handleProductClicked = (product) => {
     navigate("/product", { state: { product } });
   };
+
   return (
     <div className="products">
       <div className="tagsName">
         {filters.map((tag) => (
-          <Tag name={tag.name} onClick={() => onFilterRemoved(tag.key)} />
+          <Tag
+            name={tag.name}
+            onClick={() => handleCategoryFilterRemoved(tag.key)}
+          />
         ))}
       </div>
       <h3>Our Featured Products</h3>
@@ -36,6 +37,7 @@ export default function Products({
         {products.map((product) => {
           return (
             <Product
+              product={product}
               key={product.id}
               id={product.id}
               img={product.images}
@@ -46,7 +48,6 @@ export default function Products({
               price={product.price}
               rating={product.rating}
               availability={product.availabilityStatus}
-              onAddToCart={() => handleAddToCart(product)}
               onProductClick={() => handleProductClicked(product)}
             />
           );

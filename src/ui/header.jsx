@@ -1,6 +1,10 @@
-import logo from "../assets/logo.png";
 import Cart from "../components/CartLogo";
-export default function Header({ search, onSearch, cartCount }) {
+import { useContext } from "react";
+
+import { ProductContext } from "../pages/ProductContext";
+import CartLogo from "../components/CartLogo";
+export default function Header() {
+  const { search, handleSearch } = useContext(ProductContext);
   return (
     <div className="main-header">
       <div className="header-top">
@@ -18,7 +22,10 @@ export default function Header({ search, onSearch, cartCount }) {
         </div>
       </div>
       <header>
-        <img src={logo} />
+        <span>
+          {" "}
+          <i className="fa-brands fa-shopify"></i>
+        </span>
 
         <div className="search-bar">
           <input
@@ -26,13 +33,13 @@ export default function Header({ search, onSearch, cartCount }) {
             placeholder="Its a click away! "
             value={search}
             onChange={(e) => {
-              onSearch(e.target.value);
+              handleSearch(e.target.value);
             }}
           />
           <i className="fa-solid fa-magnifying-glass"></i>
         </div>
 
-        <Cart itemCount={cartCount} />
+        <CartLogo />
       </header>
     </div>
   );

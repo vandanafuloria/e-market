@@ -1,7 +1,7 @@
 *{
   margin: 0;
  box-sizing: border-box;
- font-family: monospace;
+
 }
 /*************** UTILITIES *****************************/
 
@@ -28,7 +28,7 @@
 }
 .main-header header{
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 margin: 1rem auto;
 
 }
@@ -170,6 +170,17 @@ background-color: white;
   justify-content: space-between;
  
 }
+.img{
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+}
+.img img{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .discount button{
   border: green 2px solid;
   padding: 5px;
@@ -177,7 +188,7 @@ background-color: white;
   font-size: 1rem;
   font-weight: 500;
     position: relative;
-  right: -3rem;
+  right: 0;
   bottom: 0.5rem;
   background-color: white;
 
@@ -185,7 +196,7 @@ background-color: white;
 }
 .discount span{
   position: relative;
-  left: -3.5rem;
+  left: 0rem;
   bottom: 1rem;
  font-size: 0.7rem;
  padding: 5px;
@@ -274,6 +285,13 @@ background: var(--gradient);
 /*******************************************************/
 .product-section{
   display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+  
+  margin: auto;
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
 
 }
 .cart{
@@ -284,16 +302,24 @@ background: var(--gradient);
  display: flex;
  flex-direction: column;
  gap: 2rem;
+
 }
- 
+
+.product-detail{
+  flex-basis: 50%;
+}
+
 
 
 
 .product-img {
-  max-width: 500px;
+  flex-basis: 40%;
   background-color: aliceblue;
   padding: 1rem;
-  position: relative;
+  
+  max-height: 700px;
+    position: sticky;
+    top: 0;
 
 }
 .product-img .fa-heart {
@@ -312,11 +338,15 @@ background: var(--gradient);
 .cart div{
   padding: 1rem;
   font-size: 1.2rem;;
-  
+  cursor: pointer;
   color: white;
   font-weight: 700;
     display: flex;
   gap: 0.4rem;
+  border-radius: 10px;
+}
+.cart div:hover{
+  box-shadow: 2px 3px 5px orange, 2px 3px 10px orange, 2px 3px 15px orange; ;
 }
  .cart div:first-child{
   background-color: orange;
@@ -353,3 +383,13 @@ background: var(--gradient);
   align-items: center;
   
 }
+.reviews-details{
+  background-color: rgb(232, 230, 230);
+  margin: 1rem 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+}
+

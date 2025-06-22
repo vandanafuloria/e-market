@@ -20,23 +20,8 @@ function Home() {
     page,
     categories,
     handleAddToCart,
+    handleSetCategories,
   } = useContext(ProductContext);
-  console.log(cart);
-  const handleCategoryFilterAdded = (category, key) => {
-    const exists = filters.some((filter) => filter.key === key);
-    if (exists) return;
-
-    const filtering = { name: category, key: key };
-    setFilters([...filters, filtering]);
-  };
-
-  const handleCategoryFilterRemoved = (key) => {
-    setFilters(filters.filter((cate) => cate.key !== key));
-  };
-
-  const handlePageChange = (page) => {
-    setPages(page);
-  };
 
   useEffect(() => {
     if (filters.length > 0) return;
@@ -80,28 +65,17 @@ function Home() {
   useEffect(() => {
     fetch(`${BASE_URL}products/category-list`)
       .then((res) => res.json())
-      .then((categories) => setCategories(categories));
+      .then((categories) => handleSetCategories(categories));
   }, []);
 
   return (
-    // <CartContext
-    // //   value={{ cartCount: cart.length, handleAddToCart, cartDetails: cart }}
-    // >
-    <div className="main-container">
-      <Categories
-        categories={categories}
-        onSelected={handleCategoryFilterAdded}
-      />
-      <Products
-        products={products}
-        filters={filters}
-        onFilterRemoved={handleCategoryFilterRemoved}
-        page={page}
-        onPageChange={handlePageChange}
-        onAddToCart={handleAddToCart}
-      />
-    </div>
-    // </CartContext>
+    <CartContext value={{ cartCount: cart.length, cartDetails: cart }}>
+      <div className="main-container">
+        <Categories />
+        <Products />
+      </div>
+      //{" "}
+    </CartContext>
   );
 }
 

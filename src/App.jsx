@@ -23,11 +23,13 @@ export default function App() {
   const [filters, setFilters] = useState([]);
   const [page, setPages] = useState(0);
 
+  console.log(cart.length);
+
   const handleSearch = (keyword) => {
     setPages(0);
     setSearch(keyword);
   };
-  const handleAddToCart = (cart) => {
+  const handleAddToCart = (product) => {
     setCart((prev) => [...prev, product]);
   };
   const handleProductsFetched = (prods) => {
@@ -35,6 +37,25 @@ export default function App() {
     console.log(prods);
   };
 
+  const handleCategoryFilterAdded = (category, key) => {
+    const exists = filters.some((filter) => filter.key === key);
+    if (exists) return;
+
+    const filtering = { name: category, key: key };
+    setFilters([...filters, filtering]);
+  };
+
+  const handleCategoryFilterRemoved = (key) => {
+    setFilters(filters.filter((cate) => cate.key !== key));
+  };
+
+  const handlePageChange = (page) => {
+    setPages(page);
+  };
+
+  const handleSetCategories = (categories) => {
+    setCategories([...categories]);
+  };
   return (
     <ProductContext.Provider
       value={{
@@ -45,10 +66,16 @@ export default function App() {
         filters,
         page,
         handleProductsFetched,
+        handleCategoryFilterAdded,
+        handleCategoryFilterRemoved,
+        handlePageChange,
+        handleSetCategories,
+        handleAddToCart,
+        handleSearch,
       }}
     >
       <BrowserRouter>
-        <Header onSearch={handleSearch} HandleCartCount={handleAddToCart} />
+        <Header />
         <Routes>
           {/** if we need to add props should not use component word bcz it ignores props */}
           <Route path="home" element={<Home />} />

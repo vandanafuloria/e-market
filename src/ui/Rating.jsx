@@ -20,7 +20,7 @@ export default function Rating({ rating }) {
         })}
       {lastRate > 5 && (
         <span style={{ color: "orange" }}>
-          <i class="fa-solid fa-star-half-stroke"></i>
+          <i className="fa-solid fa-star-half-stroke"></i>
         </span>
       )}
     </>

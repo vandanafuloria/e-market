@@ -1,25 +1,25 @@
 import Rating from "../ui/Rating";
 
 import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { ProductContext } from "../pages/ProductContext";
+import { use } from "react";
 
 export default function Product({
   id,
   img,
   title,
   brand,
-  desc,
+
   discount,
   price,
   rating,
   availability,
-  onAddToCart,
+
   onProductClick,
+  product,
 }) {
-  const navigate = useNavigate();
-  function goToProduct(id) {
-    navigate("/ProductDetail/", { state: { id: id } });
-  }
-  console.log({ id });
+  const { handleAddToCart } = useContext(ProductContext);
   return (
     <div
       className="product"
@@ -31,7 +31,12 @@ export default function Product({
       <div className="discount">
         <span>{discount}%</span>
         <p>{availability}</p>
-        <button onClick={onAddToCart}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAddToCart(product);
+          }}
+        >
           <i className="fa-solid fa-plus"></i>
         </button>
       </div>
