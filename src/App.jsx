@@ -23,14 +23,14 @@ export default function App() {
   const [filters, setFilters] = useState([]);
   const [page, setPages] = useState(0);
 
-  console.log(cart.length);
-
   const handleSearch = (keyword) => {
     setPages(0);
     setSearch(keyword);
   };
   const handleAddToCart = (product) => {
-    setCart((prev) => [...prev, product]);
+    const isInCart = cart.some((item) => item.id == product.id);
+    if (isInCart == false) setCart((prev) => [...prev, product]);
+    else return;
   };
   const handleProductsFetched = (prods) => {
     setProducts(prods);
