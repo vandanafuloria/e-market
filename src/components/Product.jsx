@@ -1,5 +1,9 @@
 import Rating from "../ui/Rating";
+
+import { useNavigate } from "react-router";
+
 export default function Product({
+  id,
   img,
   title,
   brand,
@@ -9,9 +13,21 @@ export default function Product({
   rating,
   availability,
   onAddToCart,
+  onProductClick,
 }) {
+  const navigate = useNavigate();
+  function goToProduct(id) {
+    navigate("/ProductDetail/", { state: { id: id } });
+  }
+  console.log({ id });
   return (
-    <div className="product">
+    <div
+      className="product"
+      onClick={() => {
+        onProductClick();
+        // goToProduct(id);
+      }}
+    >
       <div className="discount">
         <span>{discount}%</span>
         <p>{availability}</p>
@@ -28,9 +44,6 @@ export default function Product({
       <div>
         <Rating rating={rating} />
       </div>
-      {/* <p>
-        Read more <i className="fa-solid fa-arrow-right"></i>
-      </p> */}
     </div>
   );
 }

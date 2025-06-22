@@ -1,5 +1,5 @@
 *{
-  margin: auto;
+  margin: 0;
  box-sizing: border-box;
  font-family: monospace;
 }
@@ -87,10 +87,18 @@ header span i {
 .tags div {
   background-color: white;
   width: 100%;
-  text-align: left;
+  text-align: right;
   border-bottom: #E2005F 1px solid;
+  transition: ease-in-out 1s 0.5;
+
 
 }
+.tags> div:hover{
+  background-color:  #E2005F;
+  
+ 
+}
+
 .tags button{
   border: transparent;
   background-color: transparent;
@@ -102,6 +110,12 @@ header span i {
   
 
 }
+.tags > div:hover button {
+  color: white;
+  scale: 1.2;
+}
+
+
 
 
 /****************************************************/
@@ -256,4 +270,86 @@ background: var(--gradient);
   margin: 5px;
   color: red;
     cursor: pointer;
+}
+/*******************************************************/
+.product-section{
+  display: flex;
+
+}
+.cart{
+  display: flex;
+  justify-content: space-around;
+}
+.delivery{
+ display: flex;
+ flex-direction: column;
+ gap: 2rem;
+}
+ 
+
+
+
+.product-img {
+  max-width: 500px;
+  background-color: aliceblue;
+  padding: 1rem;
+  position: relative;
+
+}
+.product-img .fa-heart {
+  position: absolute;
+  right: 20px;;
+  font-size: 2rem;
+  color: gray; 
+  cursor: pointer;
+}
+.product-img .fa-heart:hover{
+  color: red;
+}
+.product-img img{
+  width: 100%;
+}
+.cart div{
+  padding: 1rem;
+  font-size: 1.2rem;;
+  
+  color: white;
+  font-weight: 700;
+    display: flex;
+  gap: 0.4rem;
+}
+ .cart div:first-child{
+  background-color: orange;
+
+ }
+ .cart div:last-child{
+  background-color: pink;
+ }
+.description {
+  display: flex;
+  gap: 2rem;
+}
+.product-detail span{
+  display: inline-block;
+}
+.detail-rating{
+ 
+  color: white;
+  padding: 0.5rem;
+  margin: 2rem auto;
+}
+.detail-rating span:first-child{
+  background-color: green;
+  padding: 1rem;
+}
+.detail-rating span:nth-child(2){
+  background-color: orange;
+  padding: 1rem;
+
+}
+.delivery >div:first-child{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  
 }

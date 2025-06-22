@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Header from "../ui/header";
 import Products from "../components/Products";
 import Categories from "../components/Categories";
@@ -6,31 +6,22 @@ import Categories from "../components/Categories";
 import { BASE_URL } from "../constants";
 
 import CartContext from "../context/CartContext";
+import { ProductContext } from "./ProductContext";
 
 import "../App.css";
 
 function Home() {
-  const [categories, setCategories] = useState([]);
-  const [search, setSearch] = useState(""); // state lifiting and transfer to siblling
-  const [products, setProducts] = useState([]);
-  const [filters, setFilters] = useState([]);
-  const [page, setPages] = useState(0);
-  const [cart, setCart] = useState([]);
-  console.log(filters);
-
-  /*
-
-
-
-    Header : Searching (need in api call)
-    Categories : Categories (api call)
-    Products : (api call)
-
-  */
-
-  // const handleProductFetched(products) {
-
-  // }
+  const {
+    products,
+    handleProductsFetched,
+    cart,
+    filters,
+    search,
+    page,
+    categories,
+    handleAddToCart,
+  } = useContext(ProductContext);
+  console.log(cart);
   const handleCategoryFilterAdded = (category, key) => {
     const exists = filters.some((filter) => filter.key === key);
     if (exists) return;
@@ -43,18 +34,8 @@ function Home() {
     setFilters(filters.filter((cate) => cate.key !== key));
   };
 
-  const handleAddToCart = (product) => {
-    console.log("adding to cart");
-    setCart((prev) => [...prev, product]);
-  };
-
   const handlePageChange = (page) => {
     setPages(page);
-  };
-
-  const handleSearch = (keyword) => {
-    setPages(0);
-    setSearch(keyword);
   };
 
   useEffect(() => {
@@ -68,7 +49,7 @@ function Home() {
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        setProducts(res.products); // use `res.products`, not full `res`
+        handleProductsFetched(res.products); // use `res.products`, not full `res`
       })
       .catch((err) => console.error("Error fetching products:", err));
   }, [page, search, filters]);
@@ -89,7 +70,7 @@ function Home() {
     ).then((res) => {
       const allProducts = [];
       res.forEach((prods) => allProducts.push(...prods));
-      setProducts(allProducts);
+      handleProductsFetched(allProducts);
     });
 
     // [Promise1, Promise2, Promise3]
@@ -103,25 +84,24 @@ function Home() {
   }, []);
 
   return (
-    <CartContext
-      value={{ cartCount: cart.length, handleAddToCart, cartDetails: cart }}
-    >
-      <Header search={search} onSearch={handleSearch} cartCount={cart.length} />
-      <div className="main-container">
-        <Categories
-          categories={categories}
-          onSelected={handleCategoryFilterAdded}
-        />
-        <Products
-          products={products}
-          filters={filters}
-          onFilterRemoved={handleCategoryFilterRemoved}
-          page={page}
-          onPageChange={handlePageChange}
-          onAddToCart={handleAddToCart}
-        />
-      </div>
-    </CartContext>
+    // <CartContext
+    // //   value={{ cartCount: cart.length, handleAddToCart, cartDetails: cart }}
+    // >
+    <div className="main-container">
+      <Categories
+        categories={categories}
+        onSelected={handleCategoryFilterAdded}
+      />
+      <Products
+        products={products}
+        filters={filters}
+        onFilterRemoved={handleCategoryFilterRemoved}
+        page={page}
+        onPageChange={handlePageChange}
+        onAddToCart={handleAddToCart}
+      />
+    </div>
+    // </CartContext>
   );
 }
 

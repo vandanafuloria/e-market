@@ -3,6 +3,7 @@ import { useState } from "react";
 import Product from "./Product";
 import Tag from "../ui/Tag";
 import CartContext from "../context/CartContext";
+import { useNavigate } from "react-router";
 
 export default function Products({
   products,
@@ -11,8 +12,12 @@ export default function Products({
   page,
   onPageChange,
 }) {
-  console.log(filters);
   const { handleAddToCart } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const handleProductClicked = (product) => {
+    navigate("/product", { state: { product } });
+  };
   return (
     <div className="products">
       <div className="tagsName">
@@ -32,6 +37,7 @@ export default function Products({
           return (
             <Product
               key={product.id}
+              id={product.id}
               img={product.images}
               title={product.title}
               brand={product.brand}
@@ -41,6 +47,7 @@ export default function Products({
               rating={product.rating}
               availability={product.availabilityStatus}
               onAddToCart={() => handleAddToCart(product)}
+              onProductClick={() => handleProductClicked(product)}
             />
           );
         })}
