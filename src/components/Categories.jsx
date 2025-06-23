@@ -8,12 +8,16 @@ export default function Categories({ cat, onClick }) {
   return (
     <div
       className={`tags ${cat ? "show" : ""}`}
-      style={{ display: cat ? "flex" : "none" }}
+      // style={{ display: cat ? "flex" : "none" }}
     >
-      <div className="tag-sidebar">
+      <div className={`tag-sidebar`}>
         {" "}
         <span>All CATEGORY</span>{" "}
-        <img style={{ width: "40px" }} src={sidebar} onClick={onClick} />
+        <img
+          style={{ width: "40px", display: "flex" }}
+          src={sidebar}
+          onClick={onClick}
+        />
       </div>
       {categories.map((category, index) => {
         return (

@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router";
+import CartProducts from "../ui/CartProducts";
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -7,9 +8,7 @@ export default function Cart() {
 
   return (
     <div>
-      <h1>This is Cart Page</h1>
-      <button onClick={() => navigate("/home")}>Go Back to Home</button>
-      {cart.map((c) => c.title)}
+      <CartProducts cart={cart} />
     </div>
   );
 }

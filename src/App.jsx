@@ -22,7 +22,6 @@ export default function App() {
   const [categories, setCategories] = useState([]); // state lifiting and transfer to siblling
   const [filters, setFilters] = useState([]);
   const [page, setPages] = useState(0);
-  const [visibleCat, setVisibleCat] = useState(false);
 
   const handleSearch = (keyword) => {
     setPages(0);

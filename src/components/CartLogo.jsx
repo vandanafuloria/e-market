@@ -6,7 +6,7 @@ import { ProductContext } from "../pages/ProductContext";
 
 export default function CartLogo() {
   const { cart } = useContext(ProductContext);
-  console.log({ cart });
+
   const navigate = useNavigate();
   //   console.log("hello this is my context value: ", cartCount);
 

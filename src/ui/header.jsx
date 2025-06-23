@@ -1,14 +1,16 @@
 import Cart from "../components/CartLogo";
 import { useContext } from "react";
+import { useNavigate } from "react-router";
 
 import { ProductContext } from "../pages/ProductContext";
 import CartLogo from "../components/CartLogo";
 export default function Header() {
+  const navigate = useNavigate();
   const { search, handleSearch } = useContext(ProductContext);
   return (
     <div className="main-header">
       <header>
-        <span>
+        <span style={{ cursor: "pointer" }} onClick={() => navigate("/home")}>
           {" "}
           <i className="fa-brands fa-shopify"></i>
         </span>

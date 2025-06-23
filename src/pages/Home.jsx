@@ -11,7 +11,9 @@ import { ProductContext } from "./ProductContext";
 import "../App.css";
 
 function Home() {
-  const [visibleCat, setVisibleCat] = useState(false);
+  //   const [visibleCat, setVisibleCat] = useState(false);
+  const [isMounted, setIsMounted] = useState(false); // controls if sidebar exists
+  const [isVisible, setIsVisible] = useState(false); // controls animation state
   const {
     handleProductsFetched,
     cart,
@@ -23,10 +25,17 @@ function Home() {
   } = useContext(ProductContext);
 
   function handleCategoryVisibilty() {
-    setVisibleCat(true);
+    setIsMounted(true); // mount the sidebar
+    setTimeout(() => {
+      setIsVisible(true); // fade/slide in
+    }, 10); // small delay so animation triggers
   }
   function hideCategoryVisibility() {
-    setVisibleCat(false);
+    // setVisibleCat(false);
+    setIsVisible(false); // start fade/slide out
+    setTimeout(() => {
+      setIsMounted(false); // unmount after animation ends
+    }, 400); // match your CSS transition duration
   }
 
   useEffect(() => {
@@ -77,8 +86,10 @@ function Home() {
   return (
     <CartContext value={{ cartCount: cart.length, cartDetails: cart }}>
       <div className="main-container">
-        <Categories cat={visibleCat} onClick={hideCategoryVisibility} />
-        <Products cat={visibleCat} onClick={handleCategoryVisibilty} />
+        {isMounted && (
+          <Categories cat={isVisible} onClick={hideCategoryVisibility} />
+        )}
+        <Products cat={isVisible} onClick={handleCategoryVisibilty} />
       </div>
       //{" "}
     </CartContext>
