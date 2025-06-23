@@ -18,11 +18,6 @@ export default function Products({ cat, onClick }) {
 
   return (
     <div className="products">
-      <img
-        style={{ width: "40px", display: cat ? "none" : "flex" }}
-        src={sidebar}
-        onClick={onClick}
-      />
       <div className="tagsName">
         {filters.map((tag) => (
           <Tag
@@ -31,6 +26,11 @@ export default function Products({ cat, onClick }) {
           />
         ))}
       </div>
+      <img
+        style={{ width: "40px", display: cat ? "none" : "flex" }}
+        src={sidebar}
+        onClick={onClick}
+      />
       <h3>Our Featured Products</h3>
 
       <div className="products-container">

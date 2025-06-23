@@ -16,6 +16,7 @@
   position:sticky;
   top:0;
   z-index: 99;
+   height: 100px;
   background-color:var(--primary);
   padding: 0.1rem 0;
   font-size: 0.8rem;
@@ -77,8 +78,7 @@ margin: 1rem auto;
 }
 .main-container{
   display: flex;
-  height: 100vh;
-  overflow-y: auto;
+  position: relative;
 
 }
 header span i {
@@ -88,8 +88,8 @@ header span i {
 .tags{
 
   position: sticky;
-  top: 0;
-  height: 100vh; /**  height is most imporitant here*/
+  top: 100px;
+  height: 100vh; /* height is most imporitant here*/
   width: 200px;
   padding: 10px;
 flex-shrink: 0;
@@ -163,8 +163,8 @@ font-family: monospace;
   text-align: center;
   flex: 1;
   padding: 2rem;
-  overflow-y: auto;
-  height: 100vh;
+ 
+
   background-color: rgb(242, 242, 242);
 }
 .products > h3{
@@ -196,6 +196,7 @@ background-color:var(--light);
    position: relative;
    transition: transform 1s ease-in-out;
    cursor: pointer;
+   
 
  
 }
@@ -327,6 +328,10 @@ transition: all ease-in 0.5s;
   display: flex;
   justify-content: flex-start;
   margin: 5px;
+  position: sticky;
+  top: 100px;
+  z-index: 9999;
+  background-color: white;
 }
 .tagsName div{
   margin:0;
@@ -610,4 +615,31 @@ width: 80px;
   padding-bottom: 2rem;
 
 }
+
+
+}
+@media (max-width: 480px) {
+  *{
+    font-size: 0.6rem;
+  }
+.tag-sidebar{
+  width: 50px;
+
+}
+.tags{
+  width: 80px;
+  padding: 0;
+}
+.tags button{
+  font-size: 0.5rem  !important;
+  
+}
+  .product img {
+    width: 200px;
+  }
+  .discount button{
+    right: -195px;
+  }
+
+  
 }
