@@ -21,7 +21,7 @@ export default function CartItem({ cart }) {
           <span onClick={handleDecreaseCount}>
             <i className="fa-solid fa-minus"></i>
           </span>{" "}
-          <button>{count}</button>{" "}
+          <button style={{ fontSize: "0.6rem" }}>{count}</button>{" "}
           <span onClick={handleIncreaseCount}>
             <i className="fa-solid fa-plus"></i>
           </span>
