@@ -5,8 +5,9 @@ import Tag from "../ui/Tag";
 import CartContext from "../context/CartContext";
 import { useNavigate } from "react-router";
 import { ProductContext } from "../pages/ProductContext";
+import sidebar from "../assets/sidebar.png";
 
-export default function Products() {
+export default function Products({ cat, onClick }) {
   const navigate = useNavigate();
   const { onPageChange, page, handleCategoryFilterRemoved, filters, products } =
     useContext(ProductContext);
@@ -17,6 +18,11 @@ export default function Products() {
 
   return (
     <div className="products">
+      <img
+        style={{ width: "40px", display: cat ? "none" : "flex" }}
+        src={sidebar}
+        onClick={onClick}
+      />
       <div className="tagsName">
         {filters.map((tag) => (
           <Tag

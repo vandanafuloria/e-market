@@ -11,6 +11,7 @@ import { ProductContext } from "./ProductContext";
 import "../App.css";
 
 function Home() {
+  const [visibleCat, setVisibleCat] = useState(false);
   const {
     handleProductsFetched,
     cart,
@@ -20,6 +21,13 @@ function Home() {
 
     handleSetCategories,
   } = useContext(ProductContext);
+
+  function handleCategoryVisibilty() {
+    setVisibleCat(true);
+  }
+  function hideCategoryVisibility() {
+    setVisibleCat(false);
+  }
 
   useEffect(() => {
     if (filters.length > 0) return;
@@ -69,8 +77,8 @@ function Home() {
   return (
     <CartContext value={{ cartCount: cart.length, cartDetails: cart }}>
       <div className="main-container">
-        <Categories />
-        <Products />
+        <Categories cat={visibleCat} onClick={hideCategoryVisibility} />
+        <Products cat={visibleCat} onClick={handleCategoryVisibilty} />
       </div>
       //{" "}
     </CartContext>

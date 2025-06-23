@@ -90,19 +90,31 @@ header span i {
   position: sticky;
   top: 0;
   height: 100vh; /**  height is most imporitant here*/
-  width: 150px;
+  width: 200px;
   padding: 10px;
 
   flex-shrink: 0;
-  display: flex;
+
   flex-direction: column;
   gap: 0.2rem;
-
+  opacity: 0;
+  visibility: hidden;
+  
+  transform: translateX(20px); /* or X for horizontal slide */
+  transition: opacity 1s ease, transform 1s ease, visibility 1s;
   
 }
+.tags.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+
 .tags div {
   background-color: white;
   width: 100%;
+ 
   text-align: center;
   border-bottom: var(--primary) 1px solid;
   transition: ease-in-out 1s 0.5;
@@ -130,7 +142,20 @@ header span i {
   color: white;
   scale: 1.2;
 }
-
+.tag-sidebar{
+  display: flex;
+  gap: 1rem;
+justify-content: space-around;
+align-items: center;
+background-color:var(--yellow)  !important;
+color: white;
+font-family: monospace;
+  
+}
+.tag-sidebar img {
+  filter: invert(1);
+  cursor: pointer;
+}
 
 
 
