@@ -4,7 +4,7 @@ import { ProductContext } from "../pages/ProductContext";
 
 export default function Categories({ cat, onClick }) {
   const { categories, handleCategoryFilterAdded } = useContext(ProductContext);
-
+  console.log({ cat });
   return (
     <div
       className={`tags ${cat ? "show" : ""}`}

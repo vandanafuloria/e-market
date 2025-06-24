@@ -6,11 +6,18 @@ import CartContext from "../context/CartContext";
 import { useNavigate } from "react-router";
 import { ProductContext } from "../pages/ProductContext";
 import sidebar from "../assets/sidebar.png";
+import CartProducts from "../ui/CartProducts";
 
 export default function Products({ cat, onClick }) {
   const navigate = useNavigate();
-  const { onPageChange, page, handleCategoryFilterRemoved, filters, products } =
-    useContext(ProductContext);
+  const {
+    onPageChange,
+    page,
+    handleCategoryFilterRemoved,
+    filters,
+    products,
+    cart,
+  } = useContext(ProductContext);
 
   const handleProductClicked = (product) => {
     navigate("/product", { state: { product } });

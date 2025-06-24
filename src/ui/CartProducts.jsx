@@ -3,9 +3,14 @@ import CartItem from "./CartItem";
 import { useNavigate } from "react-router";
 export default function CartProducts({ cart }) {
   const navigate = useNavigate();
-  const [total, setTotal] = useState([
-    { id: "", price: 0, number: 0, title: "" },
-  ]);
+
+  const [total, setTotal] = useState([]);
+
+  function handleTotalBill(bill) {
+    console.log(bill);
+    setTotal((prev) => prev + bill);
+  }
+
   return (
     <div className="cart-container">
       <div className="cart-container-description">
@@ -21,7 +26,7 @@ export default function CartProducts({ cart }) {
 
         <div>
           {cart.map((c) => {
-            return <CartItem cart={c} />;
+            return <CartItem cart={c} billing={handleTotalBill} />;
           })}
           <div
             className="shopping-continue"

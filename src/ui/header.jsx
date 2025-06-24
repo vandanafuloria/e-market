@@ -1,6 +1,7 @@
 import Cart from "../components/CartLogo";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
+import CartProducts from "./CartProducts";
 
 import { ProductContext } from "../pages/ProductContext";
 import CartLogo from "../components/CartLogo";

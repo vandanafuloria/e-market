@@ -90,21 +90,26 @@ header span i {
   position: sticky;
   top: 100px;
   height: 100vh; /* height is most imporitant here*/
-  width: 200px;
-  padding: 10px;
+  width: 250px;
+  
+  overflow: hidden;
+  /* padding: 10px; */
 flex-shrink: 0;
 flex-direction: column;
   gap: 0.2rem;
-  opacity: 0;
-  visibility: hidden;
+
+  /* visibility: hidden;
   transform: translateX(-20px); /* or X for horizontal slide */
-  transition: opacity 1s ease, transform 1s ease, visibility 1s;
+  /* transition: opacity 1s ease, transform 1s ease, visibility 1s; */ 
   
+  transform: translateX(-100%);
+  transition: transform 1s ease-in-out;  
 }
 .tags.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
+  /* opacity: 1; */
+  /* width: 250px; */
+   /* visibility: visible; */
+  transform: translateX(0); 
 }
 
 
@@ -512,6 +517,7 @@ width: 80px;
   display: flex;
   justify-content:  space-around;
   align-items: center;
+  
 }
 .cart-container{
   display: flex;
@@ -519,7 +525,9 @@ width: 80px;
   padding: 2rem;
   position: relative;
   flex-wrap: wrap;
- 
+  font-family: monospace;
+
+
 }
 .cart-container-description{
   flex-basis: 60%;
@@ -534,7 +542,7 @@ width: 80px;
   text-align: center;
   background-color:#fc621a; 
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 5px;
 }
 .total-value{

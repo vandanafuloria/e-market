@@ -15,7 +15,12 @@ export default function CartLogo() {
   };
   const cartCount = cart.length;
   return (
-    <div className="cart-logo" style={{ cursor: "pointer" }} onClick={goToCart}>
+    <div
+      className="cart-logo"
+      style={{ cursor: "pointer" }}
+      onClick={goToCart}
+      onMouseOver={() => console.log("mosuseing")}
+    >
       {cartCount > 0 && <span className="counter">{cartCount}</span>}
       <span>
         <i className="fa-solid fa-cart-shopping"></i>

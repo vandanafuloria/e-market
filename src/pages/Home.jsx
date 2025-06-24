@@ -91,7 +91,6 @@ function Home() {
         )}
         <Products cat={isVisible} onClick={handleCategoryVisibilty} />
       </div>
-      //{" "}
     </CartContext>
   );
 }
