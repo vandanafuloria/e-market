@@ -118,7 +118,7 @@ flex-direction: column;
   width: 100%;
  
   text-align: center;
-  border-bottom: var(--primary) 1px solid;
+
   transition: ease-in-out 1s 0.5;
 
 
@@ -604,6 +604,122 @@ width: 80px;
 }
 
 
+/******************** front page**************************************/
+ .front-main-container{
+  background-image: url("./assets/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+ 
+ }
+ .front-overlay{
+  background-color: rgba(20, 20, 20, 0.436);
+
+ }
+ .content{
+  
+  color: white;
+  display: flex;
+
+ 
+ }
+ .content h1 {
+font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+
+  font-size: 4rem;
+ }
+ .content-left{
+  flex-basis: 48%;
+  padding: 2rem;
+ }
+.content-left button{
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: #fc621a;
+    color:white;
+    border:transparent;
+    margin-top: 2rem;
+    border-radius: 10px;
+  
+
+}
+.content-left button:hover{
+  box-shadow: 0 0 3px #fc621a,0 0 6px #fc621a, 0 0 10px #fc621a, 0 0 12px #fc621a ;
+}
+.content-right{
+  flex-basis: 52%;
+
+}
+.collage{
+   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  
+}
+.collage div:nth-child(1) {
+  flex: 0 0 100%;
+  height: 250px;
+}
+
+.collage div:nth-child(2),
+.collage div:nth-child(3) {
+  flex: 0 0 48%;
+  height: 180px;
+}
+
+.collage div:nth-child(4),
+.collage div:nth-child(5),
+.collage div:nth-child(6) {
+  flex: 0 0 30%;
+  height: 140px;
+}
+.collage div:nth-child(7),
+.collage div:nth-child(8) {
+  flex: 0 0 48%;
+  height: 180px;
+}
+
+.collage div img {
+    width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s;
+}
+.collage div {
+  overflow: hidden;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeInTop 0.6s ease-out forwards;
+}
+
+.collage div:nth-child(1) { animation-delay: 0s; }
+.collage div:nth-child(2) { animation-delay: 0.2s; }
+.collage div:nth-child(3) { animation-delay: 0.4s; }
+.collage div:nth-child(4) { animation-delay: 0.6s; }
+.collage div:nth-child(5) { animation-delay: 0.8s; }
+.collage div:nth-child(6) { animation-delay: 1s; }
+.collage div:nth-child(7) { animation-delay: 1.2s; }
+.collage div:nth-child(8) { animation-delay: 1.4s; }
+
+.collage img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeInTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /*************************************/
 @media (max-width: 700px){
   *{
@@ -623,6 +739,7 @@ width: 80px;
   padding-bottom: 2rem;
 
 }
+
 
 
 }

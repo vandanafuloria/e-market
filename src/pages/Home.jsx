@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import Header from "../ui/header";
 import Products from "../components/Products";
 import Categories from "../components/Categories";
+import FrontPage from "../components/FrontPage";
 
 import { BASE_URL } from "../constants";
 
@@ -23,6 +24,10 @@ function Home() {
 
     handleSetCategories,
   } = useContext(ProductContext);
+
+  function handleMouseOver() {
+    console.log("funcation reached");
+  }
 
   function handleCategoryVisibilty() {
     setIsMounted(true); // mount the sidebar
@@ -89,7 +94,11 @@ function Home() {
         {isMounted && (
           <Categories cat={isVisible} onClick={hideCategoryVisibility} />
         )}
-        <Products cat={isVisible} onClick={handleCategoryVisibilty} />
+        <Products
+          cat={isVisible}
+          onClick={handleCategoryVisibilty}
+          onMouseOver={handleMouseOver}
+        />
       </div>
     </CartContext>
   );

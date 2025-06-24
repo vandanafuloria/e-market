@@ -6,10 +6,7 @@ export default function CartProducts({ cart }) {
 
   const [total, setTotal] = useState([]);
 
-  function handleTotalBill(bill) {
-    console.log(bill);
-    setTotal((prev) => prev + bill);
-  }
+  function handleTotalBill(bill) {}
 
   return (
     <div className="cart-container">

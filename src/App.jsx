@@ -7,6 +7,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Product from "./components/Product";
 import Header from "./ui/header";
 import { ProductContext } from "./pages/ProductContext";
+import FrontPage from "./components/FrontPage";
 
 /*
 /home => pages/Home.jsx
@@ -22,11 +23,18 @@ export default function App() {
   const [categories, setCategories] = useState([]); // state lifiting and transfer to siblling
   const [filters, setFilters] = useState([]);
   const [page, setPages] = useState(0);
+  const [website, setWebsite] = useState(false);
+
+  console.log(website);
 
   const handleSearch = (keyword) => {
     setPages(0);
     setSearch(keyword);
   };
+
+  function handleWebsiteVisibility() {
+    setWebsite(true);
+  }
   const handleAddToCart = (product) => {
     const isInCart = cart.some((item) => item.id == product.id);
     if (isInCart == false) setCart((prev) => [...prev, product]);
@@ -74,16 +82,19 @@ export default function App() {
         handleSearch,
       }}
     >
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          {/** if we need to add props should not use component word bcz it ignores props */}
-          <Route path="home" element={<Home />} />
-          <Route path="cart" Component={Cart} />
-          <Route path="product" element={<ProductDetail />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+      {!website && <FrontPage websiteHandle={handleWebsiteVisibility} />}
+      {website && (
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            {/** if we need to add props should not use component word bcz it ignores props */}
+            <Route path="home" element={<Home />} />
+            <Route path="cart" Component={Cart} />
+            <Route path="product" element={<ProductDetail />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      )}
     </ProductContext.Provider>
   );
 }
