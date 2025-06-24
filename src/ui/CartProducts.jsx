@@ -1,12 +1,42 @@
 import { useState } from "react";
 import CartItem from "./CartItem";
 import { useNavigate } from "react-router";
+
 export default function CartProducts({ cart }) {
   const navigate = useNavigate();
 
-  const [total, setTotal] = useState([]);
+  console.log({ cart });
+  const [freq, setFreq] = useState(() => {
+    const f = {};
+    cart.forEach((item) => (f[item.id] = 1));
+    return f;
+  });
 
-  function handleTotalBill(bill) {}
+  console.log({ freq });
+  /*
+  [{1: 3}, {2: 5}, {8: 10}, {3: 5}]
+     {1: 3, 2: 5, 8: 10, 3: 5}
+  [
+  {
+  id: freq,
+  id2: freq2, 
+  id3: freq3,
+
+  },
+  {
+  }
+  ]
+  */
+  // const [total, setTotal] = useState([]);
+
+  // function handleTotalBill(bill) {}
+
+  const handleUpdateFreq = (id, f) => {
+    if (f < 0) return;
+    setFreq({ ...freq, [id]: f });
+  };
+
+  // calculate total bill
 
   return (
     <div className="cart-container">
@@ -23,7 +53,13 @@ export default function CartProducts({ cart }) {
 
         <div>
           {cart.map((c) => {
-            return <CartItem cart={c} billing={handleTotalBill} />;
+            return (
+              <CartItem
+                cart={c}
+                freq={freq[c.id]}
+                onUpdateFreq={handleUpdateFreq}
+              />
+            );
           })}
           <div
             className="shopping-continue"
@@ -60,7 +96,15 @@ export default function CartProducts({ cart }) {
         <hr />
         <div>
           {" "}
-          <span>Total Cost</span> <span>$xxx</span>
+          <span>Total Cost</span>{" "}
+          <span>
+            $
+            {cart.reduce(
+              (prev, product) =>
+                Math.ceil(product.price * freq[product.id]) + prev,
+              0
+            )}
+          </span>
         </div>
         <button>CHECKOUT</button>
       </div>

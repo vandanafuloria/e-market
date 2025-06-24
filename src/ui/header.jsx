@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router";
 import CartProducts from "./CartProducts";
 
-import { ProductContext } from "../pages/ProductContext";
+import { ProductContext } from "../context/ProductContext";
 import CartLogo from "../components/CartLogo";
 export default function Header() {
   const navigate = useNavigate();

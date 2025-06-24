@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import sidebar from "../assets/sidebar.png";
-import { ProductContext } from "../pages/ProductContext";
+import { ProductContext } from "../context/ProductContext";
 
 export default function Categories({ cat, onClick }) {
   const { categories, handleCategoryFilterAdded } = useContext(ProductContext);

@@ -7,7 +7,7 @@ import FrontPage from "../components/FrontPage";
 import { BASE_URL } from "../constants";
 
 import CartContext from "../context/CartContext";
-import { ProductContext } from "./ProductContext";
+import { ProductContext } from "../context/ProductContext";
 
 import "../App.css";
 

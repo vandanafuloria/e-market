@@ -1,18 +1,14 @@
 import { useState, useEffect } from "react";
 
-export default function CartItem({ cart, billing }) {
+export default function CartItem({ cart, freq, onUpdateFreq }) {
   const [count, setCount] = useState(1);
 
   const [bill, setBill] = useState(Math.ceil(count * cart.price));
   console.log(bill);
 
-  useEffect(() => {
-    setBill(Math.ceil(count * cart.price)); // recalculate correctly
-  }, [count]);
-
-  useEffect(() => {
-    billing(bill);
-  }, [bill]);
+  // useEffect(() => {
+  //   setBill(Math.ceil(count * cart.price)); // recalculate correctly
+  // }, [count]);
 
   function handleIncreaseCount() {
     setCount((prev) => prev + 1);
@@ -31,11 +27,11 @@ export default function CartItem({ cart, billing }) {
         </div>{" "}
         <div style={{ display: "flex", gap: 10 }}>
           {" "}
-          <span onClick={handleDecreaseCount}>
+          <span onClick={() => onUpdateFreq(cart.id, freq - 1)}>
             <i className="fa-solid fa-minus"></i>
           </span>{" "}
-          <button style={{ fontSize: "0.6rem" }}>{count}</button>{" "}
-          <span onClick={handleIncreaseCount}>
+          <button style={{ fontSize: "0.6rem" }}>{freq}</button>{" "}
+          <span onClick={() => onUpdateFreq(cart.id, freq + 1)}>
             <i className="fa-solid fa-plus"></i>
           </span>
         </div>
@@ -45,7 +41,7 @@ export default function CartItem({ cart, billing }) {
         </div>
         <div>
           {" "}
-          <span>${bill}</span>
+          <span>${Math.ceil(cart.price * freq)}</span>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail";
 import Product from "./components/Product";
 import Header from "./ui/header";
-import { ProductContext } from "./pages/ProductContext";
+import { ProductContext } from "./context/ProductContext";
 import FrontPage from "./components/FrontPage";
 
 /*

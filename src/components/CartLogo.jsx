@@ -2,7 +2,7 @@ import { useContext } from "react";
 import CartContext from "../context/CartContext";
 
 import { useNavigate } from "react-router";
-import { ProductContext } from "../pages/ProductContext";
+import { ProductContext } from "../context/ProductContext";
 
 export default function CartLogo() {
   const { cart } = useContext(ProductContext);

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router";
 import Rating from "../ui/Rating";
-import { ProductContext } from "./ProductContext";
+import { ProductContext } from "../context/ProductContext";
 export default function ProductDetail() {
   const location = useLocation();
   const { product } = location.state;

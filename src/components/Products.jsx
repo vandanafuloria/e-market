@@ -4,7 +4,7 @@ import Product from "./Product";
 import Tag from "../ui/Tag";
 import CartContext from "../context/CartContext";
 import { useNavigate } from "react-router";
-import { ProductContext } from "../pages/ProductContext";
+import { ProductContext } from "../context/ProductContext";
 import sidebar from "../assets/sidebar.png";
 import CartProducts from "../ui/CartProducts";
 

@@ -2,7 +2,7 @@ import Rating from "../ui/Rating";
 
 import { useNavigate } from "react-router";
 import { useContext } from "react";
-import { ProductContext } from "../pages/ProductContext";
+import { ProductContext } from "../context/ProductContext";
 import { use } from "react";
 
 export default function Product({
