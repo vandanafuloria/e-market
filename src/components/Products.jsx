@@ -17,8 +17,10 @@ export default function Products({ cat, onClick }) {
     filters,
     products,
     cart,
+    liked,
   } = useContext(ProductContext);
 
+  // console.log({ cart });
   const handleProductClicked = (product) => {
     navigate("/product", { state: { product } });
   };
@@ -56,6 +58,8 @@ export default function Products({ cat, onClick }) {
               rating={product.rating}
               availability={product.availabilityStatus}
               onProductClick={() => handleProductClicked(product)}
+              isAdded={cart.find((val) => val.id == product.id) ? true : false}
+              isLiked={liked.find((val) => val.id == product.id) ? true : false}
             />
           );
         })}

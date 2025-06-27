@@ -15,11 +15,13 @@ export default function Product({
   price,
   rating,
   availability,
-
+  isAdded,
+  isLiked,
   onProductClick,
   product,
 }) {
   const { handleAddToCart, handleLikeItems } = useContext(ProductContext);
+  console.log({ isAdded });
   return (
     <div
       className="product"
@@ -46,12 +48,13 @@ export default function Product({
         {" "}
         <button
           className="btn btn-primary"
+          style={{ background: isAdded ? "green" : "" }}
           onClick={(e) => {
             e.stopPropagation();
             handleAddToCart(product);
           }}
         >
-          ADD TO CART
+          {isAdded ? "ADDED" : "ADD TO CART"}
         </button>
         <button
           className="btn btn-secondry"
@@ -60,7 +63,30 @@ export default function Product({
             handleLikeItems(product);
           }}
         >
-          ♡ SAVE
+          {isLiked ? (
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "1rem",
+              }}
+            >
+              <span style={{ fontSize: "1.5rem" }}>❤️</span>
+              <span>SAVED</span>
+            </span>
+          ) : (
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "1rem",
+              }}
+            >
+              <span style={{ fontSize: "1.5rem" }}>♡</span> <span>SAVE</span>
+            </span>
+          )}
         </button>
       </div>
     </div>
