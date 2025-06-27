@@ -1,23 +1,6 @@
 import { useState, useEffect } from "react";
 
 export default function CartItem({ cart, freq, onUpdateFreq }) {
-  const [count, setCount] = useState(1);
-
-  const [bill, setBill] = useState(Math.ceil(count * cart.price));
-  console.log(bill);
-
-  // useEffect(() => {
-  //   setBill(Math.ceil(count * cart.price)); // recalculate correctly
-  // }, [count]);
-
-  function handleIncreaseCount() {
-    setCount((prev) => prev + 1);
-  }
-
-  function handleDecreaseCount() {
-    setCount((prev) => Math.max(prev - 1, 1)); // last one is the decrease count should not go below 1;
-  }
-
   return (
     <div className="single-cart">
       <div className="cart-value">

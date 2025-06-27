@@ -24,10 +24,12 @@ export default function App() {
   const [filters, setFilters] = useState([]);
   const [page, setPages] = useState(0);
   const [website, setWebsite] = useState(false);
-  const [liked, setLiked] = [];
-  console.log("cate", categories);
+  const [liked, setLiked] = useState([]);
 
-  console.log(website);
+  const handleLikeItems = (newLike) => {
+    console.log("likes sdljfklasjflk");
+    setLiked([...liked, newLike]);
+  };
 
   const handleSearch = (keyword) => {
     setPages(0);
@@ -76,6 +78,7 @@ export default function App() {
         filters,
         page,
         liked,
+        handleLikeItems,
         handleProductsFetched,
         handleCategoryFilterAdded,
         handleCategoryFilterRemoved,

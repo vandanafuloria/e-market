@@ -19,7 +19,7 @@ export default function Product({
   onProductClick,
   product,
 }) {
-  const { handleAddToCart } = useContext(ProductContext);
+  const { handleAddToCart, handleLikeItems } = useContext(ProductContext);
   return (
     <div
       className="product"
@@ -53,7 +53,15 @@ export default function Product({
         >
           ADD TO CART
         </button>
-        <button className="btn btn-secondry">♡ SAVE</button>
+        <button
+          className="btn btn-secondry"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleLikeItems(product);
+          }}
+        >
+          ♡ SAVE
+        </button>
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ export default function Products({ cat, onClick }) {
         ))}
       </div>
       <img
-        style={{ width: "40px", display: cat ? "none" : "flex" }}
+        style={{ display: cat ? "none" : "flex" }}
         src={sidebar}
         onClick={onClick}
       />

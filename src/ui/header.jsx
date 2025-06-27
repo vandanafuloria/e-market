@@ -12,7 +12,11 @@ export default function Header() {
   return (
     <div className="main-header">
       <header>
-        <span style={{ cursor: "pointer" }} onClick={() => navigate("/home")}>
+        <span
+          className={"cart-logo"}
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate("/home")}
+        >
           {" "}
           <i className="fa-brands fa-shopify"></i>
         </span>

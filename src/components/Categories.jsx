@@ -13,20 +13,14 @@ export default function Categories({ cat, onClick }) {
   return (
     <div className={`tags ${cat ? "show" : ""}`}>
       <div className={"sidebar-header"}>
-        <div className="side">
-          <span
-            style={{ color: "white", fontSize: "1.5rem", fontWeight: "700" }}
-          >
-            CATEGORY
-          </span>
-          <img
-            style={{ width: "35px", display: "flex" }}
-            src={sidebar}
-            onClick={onClick}
-          />
-        </div>
-
-        <p style={{ color: "white" }}>Explore Our collections</p>
+        <span style={{ color: "white", fontSize: "1.5rem", fontWeight: "700" }}>
+          CATEGORY
+        </span>
+        <img
+          style={{ width: "35px", display: "flex" }}
+          src={sidebar}
+          onClick={onClick}
+        />
       </div>{" "}
       {categories.map((category, index) => {
         return (

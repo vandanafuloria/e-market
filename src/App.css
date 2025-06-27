@@ -17,27 +17,11 @@
   top:0;
   z-index: 99;
    height: 100px;
-  background-color:var(--primary);
+ background: linear-gradient(45deg, #667eea, #764ba2);
   padding: 0.1rem 0;
   font-size: 0.8rem;
 }
-.header-top{
-  display: flex;
-  justify-content: space-between;
-  background: var(--secondry);
 
-  padding: 1rem;
-  color: white;
-  
-}
-.header-top span{
-  margin: 5px 10px;
-  cursor: pointer;
-  
-}
-.header-top i{
-  color: white;
-}
 .main-header header{
 display: flex;
 justify-content: space-around;
@@ -45,18 +29,14 @@ align-items: center;
 margin: 1rem auto;
 
 }
-.main-header header img{
- 
-  width: 100px;
-  height: 100px;
-}
+
 
 .search-bar{
   display: flex;
   gap: 1rem;
   background-color:#e6f1f4;
   border-radius: 10px;
-   border: 0.5px solid var(--gradientBackground);
+
   flex-basis: 70%;  
 }
 .main-header header input{
@@ -69,13 +49,7 @@ margin: 1rem auto;
   background-color: transparent;
   padding: 0.8rem;
 }
-.main-header header div i{
-    align-items: center;
-    display: flex;
-    color: var(--yellow);
 
-
-}
 .main-container{
   display: flex;
   position: relative;
@@ -83,9 +57,15 @@ background: #8E9EAB;
 background: linear-gradient(90deg, rgba(142, 158, 171, 1) 0%, rgba(238, 242, 243, 1) 100%);
 
 }
+.search-bar i{
+  display: flex;
+  padding: 10px;;
+}
 header span i {
-  font-size: 40px;
-  color: var(--yellow)
+     cursor: pointer;
+  font-size: 2rem;
+    padding: 0.5rem;
+    border-radius: 15px;
 }
 .tags{
 
@@ -136,14 +116,21 @@ flex-direction: column;
 
 }
 .sidebar-header{
-      padding: 30px 20px;
+      padding: 1rem 1.5rem !important;
     background: linear-gradient(135deg, #ff6b6b, #ee5a52);
     border-radius: 0 25px 0 0;
     text-align: center;
     position: relative;
+    display: flex;
+    gap:1rem;
+    justify-content: space-between;
+
     overflow: hidden;
     font-family: monospace;
     
+}
+.sidebar-header img{
+  filter: invert(1);
 }
 
 .tags div:hover{
@@ -170,21 +157,8 @@ transform: translateX(10px);
   
 
 }
-.side{
-  display: flex;
-  gap:1rem;
-}
-.side img{
-  filter: invert(1);
-}
 
-.tags > div:hover{
-  background-color:var(--primary)
-}
-.tags > div:hover button {
-  color: white;
-  scale: 1.2;
-}
+
 .tag-sidebar{
   display: flex;
   gap: 1rem;
@@ -203,6 +177,7 @@ padding: 30px 20px;
 
 
 
+
 /****************************************************/
 .products{
   text-align: center;
@@ -211,10 +186,13 @@ padding: 30px 20px;
 
 }
 .products > h3{
-  color: var(--secondry);
- 
   font-size: 3rem;
-  font-weight: 800;
+    font-weight: 800;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+ 
 }
 .products > p{
   color: gray;
@@ -224,13 +202,15 @@ padding: 30px 20px;
 .products-container{
   display: flex;
   justify-content: space-around;
-  gap: 3rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
   margin-top: 5rem;
+  min-width: 350px;
  
 }
 .product{
-  max-width: 300px;
+width: 30%;
+
   border-radius: 10px;
 background-color: rgba(255, 255, 255, 0.351);;
    text-align: center;
@@ -248,7 +228,7 @@ background-color: rgba(255, 255, 255, 0.351);;
 
 }
 .products-container img{
-  width: 90%;
+  width: 100%;
   border-radius: 10px;
 
 }
@@ -287,8 +267,8 @@ background-color: rgba(255, 255, 255, 0.351);;
     
 
 .img{
-  max-width: 300px;
-  max-height: 250px;
+
+ 
   overflow: hidden;
 }
 .img img{
@@ -358,29 +338,35 @@ background-color: rgba(255, 255, 255, 0.351);;
   display: flex;
   justify-content: space-around;
 }
-.catagory button{
 
-  border: transparent;
-  color: white;
-  font-size: 1rem;
-  padding: 1rem;
-  background-color: transparent;
-}
 
 
 .cart-logo {
-  position: relative;
+     width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
 }
 .cart-logo .counter{
-  font-size: 0.8rem;
-  position: absolute;
-  right: -50%;
-  top: -50%;
-  border-radius: 50%;
-  padding: 10px 15px;
-  background: var(--secondry);
-  z-index: -1;
-  color: white;
+     font-size: 0.8rem;
+    position: absolute;
+    right: -3%;
+    top: -16%;
+    border-radius: 50%;
+    padding: 3px 6px;
+    /* background: var(--secondry); */
+
+    color: white;
+    background: red;
+    font-weight: 700;
 
 }
 .tagsName{
@@ -454,6 +440,9 @@ background-color: rgba(255, 255, 255, 0.351);;
   object-fit: cover;
   transition: transform 0.3s ease;
   will-change: transform;
+}
+.products >img{
+  width: 50px;
 }
 .product-img:hover img{
   transform: scale(0.8);
@@ -682,10 +671,22 @@ width: 80px;
 
 
 /*************************************/
-@media(max-width: 850px){
-  .content{
-    flex-wrap: wrap;
-    
+@media(max-width:1030px){
+.products-container{
+  justify-content: space-around;
+}
+.btn{
+font-size: 0.6rem !important;
+padding: 5px 6px;
+}
+.product h6{
+  font-size: 0.9rem;
+}
+
+.tags.show{
+  position: absolute;
+  z-index: 10;
+ 
 }
 
 
@@ -708,6 +709,10 @@ width: 80px;
   padding-bottom: 2rem;
 
 }
+  .discount-badge, .stock-badge{
+    padding:3px 6px;
+    font-size: 0.5rem;;
+  }
 
 
 
@@ -737,11 +742,55 @@ width: 80px;
   font-size: 0.5rem  !important;
   
 }
-  .product img {
-    width: 200px;
-  }
+ 
   .discount button{
     right: -195px;
+  }
+  .tagsName img{
+    width: 20px;
+  }
+  .product{
+    width: 100%;
+  }
+  .products-container {
+        display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .discount-badge, .stock-badge{
+    padding:3px 6px;
+    font-size: 0.3rem;;
+  }
+  .products> img{
+    width: 20px;
+  }
+  header{
+    flex-wrap: wrap;
+  }
+  .search-bar{
+    order: 4;
+    margin-top:1rem;
+  }
+  header .emoji{
+    font-size: 1.2rem;
+
+  }
+  .cart-logo{
+    padding:0.5rem;
+  }
+  .product{
+    padding-top: 1.5rem;
+  }
+  .product h3{
+    font-size: 0.7rem;
+  }
+  .buttons button{
+    font-size: 0.4rem !important;
+    font-weight: 300;
+  }
+  .products{
+    padding:0;
+    margin:1.5rem;
   }
 
   
