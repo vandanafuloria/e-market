@@ -24,6 +24,8 @@ export default function App() {
   const [filters, setFilters] = useState([]);
   const [page, setPages] = useState(0);
   const [website, setWebsite] = useState(false);
+  const [liked, setLiked] = [];
+  console.log("cate", categories);
 
   console.log(website);
 
@@ -73,6 +75,7 @@ export default function App() {
         categories,
         filters,
         page,
+        liked,
         handleProductsFetched,
         handleCategoryFilterAdded,
         handleCategoryFilterRemoved,

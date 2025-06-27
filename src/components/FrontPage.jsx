@@ -1,62 +1,29 @@
-import clothes from "../assets/clothes.avif";
-import bag from "../assets/bag.jpg";
-import jute from "../assets/jute.jpg";
-import jwlry from "../assets/jwlry.jpeg";
-import kitchen from "../assets/kitchen.avif";
-import shoes from "../assets/shoes.webp";
+import img1 from "../assets/clothes.avif";
+import img2 from "../assets/bag.jpg";
 
-import glasses from "../assets/sunglasses.jpg";
-const dress =
-  "https://t3.ftcdn.net/jpg/06/36/44/26/360_F_636442633_m2RP8H4ynqfdPtpLTXmnLQ9SSpV5ZQdB.jpg";
+import img3 from "../assets/image.png";
+import img4 from "../assets/kitchen.avif";
+import img5 from "../assets/jwlry.jpeg";
+import img6 from "../assets/shoes.webp";
+import img7 from "../assets/sunglasses.jpg";
+import img8 from "../assets/womandress.jpg";
 
 export default function FrontPage({ websiteHandle }) {
+  const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+
   return (
     <>
       <div className="front-main-container">
         <div className="front-overlay">
           <div className="content">
             <div className="content-left">
-              <h1>
-                <span>Shop The Vibe</span>
-                <br />
-                <span> Feel The Vibe</span>
-              </h1>
-              <button onClick={websiteHandle}>Shop Now</button>
-            </div>
-            <div className="content-right">
-              <div className="collage">
-                <div>
-                  {" "}
-                  <img src={dress} />
-                </div>
-                <div>
-                  {" "}
-                  <img src={clothes} />
-                </div>
-                <div>
-                  {" "}
-                  <img src={bag} />
-                </div>
-                <div>
-                  {" "}
-                  <img src={jute} />
-                </div>
-                <div>
-                  {" "}
-                  <img src={kitchen} />
-                </div>
-                <div>
-                  {" "}
-                  <img src={jwlry} />
-                </div>
-                <div>
-                  {" "}
-                  <img src={shoes} />
-                </div>
-                <div>
-                  {" "}
-                  <img src={glasses} />
-                </div>
+              <h1 class="main-title">Shop The Vibe</h1>
+              <h2 class="subtitle">Feel The Experience</h2>
+              <div className="btn">
+                {" "}
+                <button className="cta-button" onClick={websiteHandle}>
+                  Explore Collection
+                </button>
               </div>
             </div>
           </div>

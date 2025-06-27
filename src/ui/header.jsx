@@ -2,6 +2,7 @@ import Cart from "../components/CartLogo";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import CartProducts from "./CartProducts";
+import Liked from "./Liked";
 
 import { ProductContext } from "../context/ProductContext";
 import CartLogo from "../components/CartLogo";
@@ -27,6 +28,8 @@ export default function Header() {
           />
           <i className="fa-solid fa-magnifying-glass"></i>
         </div>
+
+        <Liked />
 
         <CartLogo />
       </header>
