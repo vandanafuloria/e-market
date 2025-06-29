@@ -28,6 +28,10 @@ export default function App() {
 
   const handleLikeItems = (newLike) => {
     const isInLiked = liked.some((item) => item.id == newLike.id);
+    if (isInLiked) {
+      const filtered = liked.filter((like) => like.id !== newLike.id);
+      setLiked([filtered]);
+    }
     if (isInLiked == false) setLiked((prev) => [...prev, newLike]);
     else return;
   };
