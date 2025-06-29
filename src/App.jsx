@@ -27,7 +27,9 @@ export default function App() {
   const [liked, setLiked] = useState([]);
 
   const handleLikeItems = (newLike) => {
-    setLiked([...liked, newLike]);
+    const isInLiked = liked.some((item) => item.id == newLike.id);
+    if (isInLiked == false) setLiked((prev) => [...prev, newLike]);
+    else return;
   };
 
   const handleSearch = (keyword) => {
@@ -43,6 +45,7 @@ export default function App() {
     if (isInCart == false) setCart((prev) => [...prev, product]);
     else return;
   };
+
   const handleProductsFetched = (prods) => {
     setProducts(prods);
     console.log(prods);

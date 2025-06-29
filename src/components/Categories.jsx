@@ -13,9 +13,7 @@ export default function Categories({ cat, onClick }) {
   return (
     <div className={`tags ${cat ? "show" : ""}`}>
       <div className={"sidebar-header"}>
-        <span style={{ color: "white", fontSize: "1.5rem", fontWeight: "700" }}>
-          CATEGORY
-        </span>
+        <span style={{ color: "white" }}>CATEGORY</span>
         <img
           style={{ width: "35px", display: "flex" }}
           src={sidebar}
