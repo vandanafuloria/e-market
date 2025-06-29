@@ -577,7 +577,7 @@ background-color: rgba(255, 255, 255, 0.351);;
   padding:1rem 0;
   
 }
-.reviews-details
+
 
 /********************************************/
 
@@ -585,14 +585,19 @@ background-color: rgba(255, 255, 255, 0.351);;
   display: flex;
   justify-content: space-around;
   margin: 1rem 0;
+  font-family: var(--font);
+
 }
 .single-cart {
 background-color: white; /* or initial color */
 border-radius: 15px;
+margin-bottom: 1rem;
+transition: all ease 0.7s;
 }
 .single-cart:hover{
 cursor: pointer;
-background-color: rgb(227, 227, 227);;
+box-shadow: 0 0 10px lightgray;
+transform: scaleY(1.2);
 
 /* background: linear-gradient(215deg, rgba(252, 74, 26, 1) 0%, rgba(247, 183, 51, 1) 100%); */
 
@@ -671,7 +676,7 @@ width: 80px;
 }
 .total-value button{
   display: block;
- background: #fc621a;
+  background: linear-gradient(135deg, #ff9800, #f57c00);
 
   border:transparent;
   color:white;
@@ -680,13 +685,13 @@ width: 80px;
   margin-top: 20px;
   border-radius: 10px;
   cursor: pointer;
-  transition: ease 0.5s;
+  transition: background-color ease 1s;
+
   
 }
 .total-value button:hover{
-  /* transform: translateY(-8px); */
-  background-color: #FC4A1A;
-  box-shadow: 0 0 5px #FC4A1A, 0 0 10px #FC4A1A, 0 0 15px #FC4A1A;
+     background: linear-gradient(135deg, #4caf50, #388e3c);
+
 }
 .shopping-continue{
   color: #FC4A1A;

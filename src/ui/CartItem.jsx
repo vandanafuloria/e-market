@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-export default function CartItem({ cart, freq, onUpdateFreq }) {
+export default function CartItem({ cart, freq, onUpdateFreq, onClick }) {
   return (
-    <div className="single-cart">
+    <div className="single-cart" onClick={onClick}>
       <div className="cart-value">
         {" "}
         <div>

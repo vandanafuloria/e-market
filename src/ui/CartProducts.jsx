@@ -36,7 +36,9 @@ export default function CartProducts({ cart }) {
     setFreq({ ...freq, [id]: f });
   };
 
-  // calculate total bill
+  function handleCartProductClicked(product) {
+    navigate("/product", { state: { product } });
+  }
 
   return (
     <div className="cart-container">
@@ -58,6 +60,7 @@ export default function CartProducts({ cart }) {
                 cart={c}
                 freq={freq[c.id]}
                 onUpdateFreq={handleUpdateFreq}
+                onClick={() => handleCartProductClicked(c)}
               />
             );
           })}
