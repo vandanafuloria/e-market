@@ -84,7 +84,10 @@ export default function Product({
                 gap: "1rem",
               }}
             >
-              <span style={{ fontSize: "1.5rem" }}>♡</span> <span>SAVE</span>
+              <span className={"heart"} style={{ fontSize: "1.5rem" }}>
+                ♡
+              </span>{" "}
+              <span>SAVE</span>
             </span>
           )}
         </button>

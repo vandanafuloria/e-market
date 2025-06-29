@@ -6,7 +6,6 @@ export default function ProductDetail() {
   const location = useLocation();
   const { product } = location.state;
 
-  const [liked, setLiked] = useState(false);
   const { cart, handleAddToCart } = useContext(ProductContext);
 
   return (
@@ -14,12 +13,8 @@ export default function ProductDetail() {
       <div className="details">
         <div className="product-section">
           <div className="product-img">
-            <i
-              className="fa-solid fa-heart"
-              style={{ color: liked ? "red" : "gray" }}
-              onClick={() => setLiked(!liked)}
-            ></i>
             <img src={product.images[0]} />
+            <h3>🚀 {product.brand}</h3>
             <div className="cart">
               <div
                 onClick={() => {
@@ -42,15 +37,15 @@ export default function ProductDetail() {
           <div className="product-detail">
             <h1>{product.title}</h1>
             <div className="detail-rating">
-              <span>
-                {product.rating} <i className="fa-solid fa-star"></i>
-              </span>{" "}
+              <span>{product.rating} ⭐️ </span>{" "}
               <span>Reviews: {product.reviews.length}</span>
             </div>
-            <h3 style={{ margin: "1rem 0" }}>
-              Minimum Order Qualnity : {product.minimumOrderQuantity} Units
-            </h3>
             <section className="delivery">
+              <h3>
+                <span> Minimum Order Qualnity : </span>
+                <span> {product.minimumOrderQuantity} Units</span>
+              </h3>
+
               <div>
                 <h3>
                   {" "}
@@ -71,35 +66,35 @@ export default function ProductDetail() {
               <h3>
                 <span> Weight : </span> <span> {product.weight} gm</span>
               </h3>
-
-              <div className="description">
-                <span>Description: </span>
-
-                <p>{product.description}</p>
-              </div>
-
-              <div>
-                {" "}
-                <h3>Reviews: </h3>
-                {product.reviews.map((rev) => {
-                  console.log(rev.comment);
-                  return (
-                    <div className="reviews-details">
-                      <span>By: {rev.reviewerName}</span>
-                      <p>On: {rev.date.split("T")[0]}</p>{" "}
-                      <span>{rev.comment}</span>
-                      <label>
-                        <span style={{ display: "flex" }}>
-                          {" "}
-                          Rating :
-                          <Rating rating={rev.rating} />{" "}
-                        </span>
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
             </section>
+
+            <div className="description">
+              <span> ✨ Description: </span>
+
+              <p>{product.description}</p>
+            </div>
+
+            <div className="reviews">
+              {" "}
+              <h3>📝 Customer Reviews: </h3>
+              {product.reviews.map((rev) => {
+                console.log(rev.comment);
+                return (
+                  <div className="reviews-details">
+                    <span>By: {rev.reviewerName}</span>
+                    <p>On: {rev.date.split("T")[0]}</p>{" "}
+                    <span>{rev.comment}</span>
+                    <label>
+                      <span style={{ display: "flex" }}>
+                        {" "}
+                        Rating :
+                        <Rating rating={rev.rating} />{" "}
+                      </span>
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

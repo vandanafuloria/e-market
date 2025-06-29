@@ -27,7 +27,6 @@ export default function App() {
   const [liked, setLiked] = useState([]);
 
   const handleLikeItems = (newLike) => {
-    console.log("likes sdljfklasjflk");
     setLiked([...liked, newLike]);
   };
 
