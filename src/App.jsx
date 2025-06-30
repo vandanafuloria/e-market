@@ -1,5 +1,5 @@
 import { Route, Routes, BrowserRouter, useNavigate } from "react-router";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
@@ -10,6 +10,7 @@ import { ProductContext } from "./context/ProductContext";
 import FrontPage from "./components/FrontPage";
 import Type from "./components/ProductList";
 import ProductList from "./components/ProductList";
+import useLocalStorage from "./components/LocalStorage";
 
 /*
 /home => pages/Home.jsx
@@ -32,9 +33,26 @@ export default function App() {
 
   // }
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  useEffect(() => {
+    localStorage.setItem("like", JSON.stringify(liked));
+  }, [liked]);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    const savedLiked = localStorage.getItem("like");
+
+    if (savedCart) setCart(JSON.parse(savedCart));
+    if (savedLiked) setLiked(JSON.parse(savedLiked));
+  }, []);
+
   function deleteItem(id) {
     const newCart = cart.filter((item) => item.id !== id);
-    console.log(newCart);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+
     setCart(newCart);
   }
 
@@ -43,10 +61,13 @@ export default function App() {
     if (isInLiked) {
       const filtered = liked.filter((like) => like.id !== newLike.id);
       setLiked([...filtered]);
-      // [[p1, p2, p3]]
     }
-    if (isInLiked == false) setLiked((prev) => [...prev, newLike]);
-    else return;
+    if (isInLiked == false) {
+      const updated = [...liked, newLike];
+      setLiked(updated);
+      //  setLiked((prev) => [...prev, newLike]);
+      localStorage.setItem("like", JSON.stringify(updated));
+    } else return;
   };
 
   const handleSearch = (keyword) => {
@@ -59,13 +80,15 @@ export default function App() {
   }
   const handleAddToCart = (product) => {
     const isInCart = cart.some((item) => item.id == product.id);
-    if (isInCart == false) setCart((prev) => [...prev, product]);
-    else return;
+    if (isInCart == false) {
+      const newCart = [...cart, product];
+      setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+    } else return;
   };
 
   const handleProductsFetched = (prods) => {
     setProducts(prods);
-    console.log(prods);
   };
 
   const handleCategoryFilterAdded = (category, key) => {

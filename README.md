@@ -25,7 +25,7 @@
 
 ![main](./src/assets/main.png)
 ![product](./src//assets/product.png)
-![billing](./src/assets/cart.png)
+![billing](./src/assets/new.png)
 
 ---
 
