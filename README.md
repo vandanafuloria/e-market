@@ -94,6 +94,14 @@ npm run dev
 
 ```
 
+## 💡 What I Learned
+
+- Hands-on experience with **React hooks** (`useEffect`, `useState`, `useContext`)
+- Building **custom filtering & pagination logic**
+- Implementing **persistent state with localStorage**
+- Learned to deploy and manage a **live React application**
+- Enhanced understanding of **state lifting** and **context sharing**
+
 ## 📬 Contact Me
 
 - **🔗 [LinkedIn](https://www.linkedin.com/in/vandanafuloria/)**
