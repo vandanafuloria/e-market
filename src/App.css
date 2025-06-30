@@ -821,7 +821,7 @@ padding: 5px 6px;
 }
 @media (max-width: 480px) {
   *{
-    font-size: 0.9rem;
+    font-size: 0.6rem;
   }
  .content{
   padding-top: 10rem;
@@ -893,7 +893,8 @@ padding: 5px 6px;
     margin:1.5rem;
   }
   .btn{
-    font-weight: 700;
+    font-weight: 900;
+    font-size: 0.8rem;
   }
   .buttons{
     flex-direction: column;
