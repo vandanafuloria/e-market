@@ -821,7 +821,7 @@ padding: 5px 6px;
 }
 @media (max-width: 480px) {
   *{
-    font-size: 0.6rem;
+    font-size: 0.9rem;
   }
  .content{
   padding-top: 10rem;
