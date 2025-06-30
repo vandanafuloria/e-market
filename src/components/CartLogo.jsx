@@ -8,7 +8,6 @@ export default function CartLogo() {
   const { cart } = useContext(ProductContext);
 
   const navigate = useNavigate();
-  //   console.log("hello this is my context value: ", cartCount);
 
   const goToCart = () => {
     navigate("/cart", { state: { cart } });

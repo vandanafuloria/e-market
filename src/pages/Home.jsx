@@ -26,10 +26,6 @@ function Home() {
     handleSetCategories,
   } = useContext(ProductContext);
 
-  function handleMouseOver() {
-    console.log("function reached");
-  }
-
   function handleCategoryVisibilty() {
     setIsMounted(true);
     setTimeout(() => {
@@ -113,11 +109,7 @@ function Home() {
         {isMounted && (
           <Categories cat={isVisible} onClick={hideCategoryVisibility} />
         )}
-        <Products
-          cat={isVisible}
-          onClick={handleCategoryVisibilty}
-          onMouseOver={handleMouseOver}
-        />
+        <Products cat={isVisible} onClick={handleCategoryVisibilty} />
       </div>
     </CartContext>
   );

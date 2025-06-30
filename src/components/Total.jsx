@@ -1,5 +1,4 @@
 export default function Total({ freq, cart }) {
-  console.log(cart);
   return (
     <>
       <div className="total-value">

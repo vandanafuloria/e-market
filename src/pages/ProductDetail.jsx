@@ -78,7 +78,6 @@ export default function ProductDetail() {
               {" "}
               <h3>📝 Customer Reviews: </h3>
               {product.reviews.map((rev) => {
-                console.log(rev.comment);
                 return (
                   <div className="reviews-details">
                     <span>By: {rev.reviewerName}</span>

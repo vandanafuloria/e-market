@@ -10,7 +10,6 @@ import { ProductContext } from "./context/ProductContext";
 import FrontPage from "./components/FrontPage";
 import Type from "./components/ProductList";
 import ProductList from "./components/ProductList";
-import useLocalStorage from "./components/LocalStorage";
 
 /*
 /home => pages/Home.jsx

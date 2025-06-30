@@ -21,7 +21,7 @@ export default function Product({
   product,
 }) {
   const { handleAddToCart, handleLikeItems } = useContext(ProductContext);
-  console.log({ isAdded });
+
   return (
     <div
       className="product"

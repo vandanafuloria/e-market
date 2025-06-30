@@ -5,8 +5,6 @@ export default function CartItem({
   onClick,
   isQuantityVisible,
 }) {
-  console.log(isQuantityVisible);
-
   return (
     <div className="single-cart" onClick={onClick}>
       <div className="cart-value">
