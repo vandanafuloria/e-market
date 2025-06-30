@@ -21,17 +21,17 @@
 
 ---
 
+## Live Demo
+
+##### [**Click here to view the deployed app**](https://e-market-git-main-vandana-fulorias-projects.vercel.app/)
+
+---
+
 ## 🖼️ Screenshots
 
 ![main](./src/assets/main.png)
 ![product](./src//assets/product.png)
 ![billing](./src/assets/new.png)
-
----
-
-## Live Demo
-
-👉 [**Click here to view the deployed app**](https://your-demo-link.com)
 
 ---
 
