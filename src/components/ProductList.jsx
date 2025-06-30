@@ -31,7 +31,7 @@ export default function ProductList({
                 freq={freq[c.id]}
                 onUpdateFreq={onUpdateFreq}
                 onClick={() => onClick(c)}
-                isQuntityVisible={type === "CART"}
+                isQuantityVisible={true}
               />
             );
           })}

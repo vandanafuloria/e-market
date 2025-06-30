@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 export default function CartItem({
   cart,
   freq,
@@ -7,7 +5,8 @@ export default function CartItem({
   onClick,
   isQuantityVisible,
 }) {
-  console.log({ cart });
+  console.log(isQuantityVisible);
+
   return (
     <div className="single-cart" onClick={onClick}>
       <div className="cart-value">
@@ -16,11 +15,21 @@ export default function CartItem({
         </div>
         {isQuantityVisible && (
           <div style={{ display: "flex", gap: 10 }}>
-            <span onClick={() => onUpdateFreq(cart.id, freq - 1)}>
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                onUpdateFreq(cart.id, freq - 1);
+              }}
+            >
               <i className="fa-solid fa-minus"></i>
             </span>
             <button style={{ fontSize: "0.6rem" }}>{freq}</button>{" "}
-            <span onClick={() => onUpdateFreq(cart.id, freq + 1)}>
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                onUpdateFreq(cart.id, freq + 1);
+              }}
+            >
               <i className="fa-solid fa-plus"></i>
             </span>
           </div>

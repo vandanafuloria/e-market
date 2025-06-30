@@ -28,6 +28,16 @@ export default function App() {
   const [website, setWebsite] = useState(false);
   const [liked, setLiked] = useState([]);
 
+  // function handleLocalStorage(key, initialValue){
+
+  // }
+
+  function deleteItem(id) {
+    const newCart = cart.filter((item) => item.id !== id);
+    console.log(newCart);
+    setCart(newCart);
+  }
+
   const handleLikeItems = (newLike) => {
     const isInLiked = liked.some((item) => item.id == newLike.id);
     if (isInLiked) {
@@ -95,6 +105,7 @@ export default function App() {
         handleSetCategories,
         handleAddToCart,
         handleSearch,
+        deleteItem,
       }}
     >
       {!website && <FrontPage websiteHandle={handleWebsiteVisibility} />}
