@@ -821,7 +821,7 @@ padding: 5px 6px;
 }
 @media (max-width: 480px) {
   *{
-    font-size: 0.6rem;
+    font-size: 1rem;
   }
  .content{
   padding-top: 10rem;
@@ -854,7 +854,7 @@ padding: 5px 6px;
   }
   .products-container {
         display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
   .discount-badge, .stock-badge{
