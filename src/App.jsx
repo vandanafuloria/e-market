@@ -8,6 +8,8 @@ import Product from "./components/Product";
 import Header from "./ui/header";
 import { ProductContext } from "./context/ProductContext";
 import FrontPage from "./components/FrontPage";
+import Type from "./components/ProductList";
+import ProductList from "./components/ProductList";
 
 /*
 /home => pages/Home.jsx
@@ -30,7 +32,8 @@ export default function App() {
     const isInLiked = liked.some((item) => item.id == newLike.id);
     if (isInLiked) {
       const filtered = liked.filter((like) => like.id !== newLike.id);
-      setLiked([filtered]);
+      setLiked([...filtered]);
+      // [[p1, p2, p3]]
     }
     if (isInLiked == false) setLiked((prev) => [...prev, newLike]);
     else return;
@@ -103,6 +106,10 @@ export default function App() {
             <Route path="home" element={<Home />} />
             <Route path="cart" Component={Cart} />
             <Route path="product" element={<ProductDetail />} />
+            <Route
+              path="favourite"
+              element={<ProductList products={liked} type="FAV" />}
+            />
             <Route path="*" element={<Home />} />
           </Routes>
         </BrowserRouter>

@@ -2,7 +2,8 @@ import { useState } from "react";
 import CartItem from "./CartItem";
 import { useNavigate } from "react-router";
 import Total from "../components/Total";
-import Type from "../components/Type";
+import Type from "../components/ProductList";
+import ProductList from "../components/ProductList";
 
 export default function CartProducts({ cart }) {
   const navigate = useNavigate();
@@ -24,12 +25,12 @@ export default function CartProducts({ cart }) {
 
   return (
     <div className="cart-container">
-      <Type
+      <ProductList
         freq={freq}
-        cart={cart}
+        products={cart}
         onUpdateFreq={handleUpdateFreq}
         onClick={handleCartProductClicked}
-        type={"Shopping Cart"}
+        type={"CART"}
       />
       <Total freq={freq} cart={cart} />
     </div>

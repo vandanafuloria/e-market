@@ -1,30 +1,37 @@
 import CartItem from "../ui/CartItem";
 import { useNavigate } from "react-router";
 
-export default function Type({ cart, freq, onClick, onUpdateFreq, type }) {
-  console.log(cart, "ths is jfkjsdkfljsklj");
+export default function ProductList({
+  products,
+  freq = {},
+  onClick,
+  onUpdateFreq,
+  type,
+}) {
   const navigate = useNavigate();
+  const label = type === "CART" ? "Shopping Cart 🛒" : "Favourite Items ❤️";
   return (
     <>
       <div className="cart-container-description">
         <div className="cart-heading">
-          {" "}
-          <h1>{type}</h1> <h1>{cart.length} Items</h1>
+          <h1>{label}</h1> <h1>{products.length} Items</h1>
         </div>
         <div className="cart-container-options">
-          {" "}
-          <span>Product Details</span> <span>Quantity</span> <span>Price</span>{" "}
+          <span>Product Details</span>
+          {type === "CART" && <span>Quantity</span>}
+          <span>Price</span>
           <span>Total</span>
         </div>
 
         <div>
-          {cart.map((c) => {
+          {products.map((c) => {
             return (
               <CartItem
                 cart={c}
                 freq={freq[c.id]}
                 onUpdateFreq={onUpdateFreq}
                 onClick={() => onClick(c)}
+                isQuntityVisible={type === "CART"}
               />
             );
           })}
