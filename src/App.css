@@ -371,21 +371,28 @@ background-color: rgba(255, 255, 255, 0.351);;
 .tagsName{
   display: flex;
   justify-content: flex-start;
+  gap:1rem;
   margin: 5px;
   position: sticky;
   top: 100px;
-  z-index: 9999;
-  background-color: white;
+  z-index: 9;
+  background-color: transparent;
 }
 .tagsName div{
   margin:0;
   align-items: center;
+     background: linear-gradient(135deg, #FFEFBA ,#FFFFFF);
+
+   border-radius: 5px;
 
 
 }
 .tagsName div button {
   border-radius: 10px;
-  border:var(--gradientBackground) 1px solid;
+  background-color: transparent;
+  border: none;
+  color:black;
+  font-weight: 400;
 }
 .tagsName i {
   margin: 5px;
