@@ -34,14 +34,6 @@ export default function App() {
   // }
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
-  useEffect(() => {
-    localStorage.setItem("like", JSON.stringify(liked));
-  }, [liked]);
-
-  useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     const savedLiked = localStorage.getItem("like");
 
@@ -64,9 +56,9 @@ export default function App() {
     }
     if (isInLiked == false) {
       const updated = [...liked, newLike];
+      localStorage.setItem("like", JSON.stringify(updated));
       setLiked(updated);
       //  setLiked((prev) => [...prev, newLike]);
-      localStorage.setItem("like", JSON.stringify(updated));
     } else return;
   };
 
@@ -79,12 +71,12 @@ export default function App() {
     setWebsite(true);
   }
   const handleAddToCart = (product) => {
-    const isInCart = cart.some((item) => item.id == product.id);
-    if (isInCart == false) {
+    const isInCart = cart.find((item) => item.id == product.id);
+    if (!isInCart) {
       const newCart = [...cart, product];
-      setCart(newCart);
       localStorage.setItem("cart", JSON.stringify(newCart));
-    } else return;
+      setCart(newCart);
+    }
   };
 
   const handleProductsFetched = (prods) => {
@@ -121,6 +113,7 @@ export default function App() {
         page,
         liked,
         handleLikeItems,
+
         handleProductsFetched,
         handleCategoryFilterAdded,
         handleCategoryFilterRemoved,

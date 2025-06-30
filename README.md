@@ -96,5 +96,5 @@ npm run dev
 
 ## 📬 Contact Me
 
-- **🔗 [LinkedIn](https://www.linkedin.com/in/vandana-fuloria/)**
+- **🔗 [LinkedIn](https://www.linkedin.com/in/vandanafuloria/)**
 - **📩 [Gmail](vandanafuloria02@gmail.com)**

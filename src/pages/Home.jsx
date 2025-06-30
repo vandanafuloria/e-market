@@ -46,24 +46,28 @@ function Home() {
 
   // Fetch products if no filters
   useEffect(() => {
-    if (filters.length > 0) return;
+    const t = setTimeout(() => {
+      if (filters.length > 0) return;
 
-    setIsLoading(true);
+      setIsLoading(true);
 
-    const url = `${BASE_URL}products/search?q=${search}&limit=10&skip=${
-      page * 10
-    }`;
+      const url = `${BASE_URL}products/search?q=${search}&limit=10&skip=${
+        page * 10
+      }`;
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        handleProductsFetched(res.products);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching products:", err);
-        setIsLoading(false);
-      });
+      fetch(url)
+        .then((res) => res.json())
+        .then((res) => {
+          handleProductsFetched(res.products);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.error("Error fetching products:", err);
+          setIsLoading(false);
+        });
+    }, 300);
+
+    return () => clearInterval(t);
   }, [page, search, filters]);
 
   // Fetch filtered category products

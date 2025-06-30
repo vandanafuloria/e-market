@@ -11,7 +11,7 @@ import CartProducts from "../ui/CartProducts";
 export default function Products({ cat, onClick }) {
   const navigate = useNavigate();
   const {
-    onPageChange,
+    handlePageChange,
     page,
     handleCategoryFilterRemoved,
     filters,
@@ -64,17 +64,18 @@ export default function Products({ cat, onClick }) {
           );
         })}
       </div>
-      <div
-        style={{
-          margin: "2rem",
-        }}
-      >
-        <button onClick={() => onPageChange(page - 1)}>
-          <i className="fa-solid fa-arrow-left-long"></i> Prev
-        </button>
-        <button onClick={() => onPageChange(page + 1)}>
-          Next <i className="fa-solid fa-arrow-right-long"></i>{" "}
-        </button>
+      <div className="page">
+        <div>
+          {" "}
+          <button onClick={() => handlePageChange(page - 1)}>
+            <i className="fa-solid fa-arrow-left-long"></i> Prev
+          </button>
+        </div>
+        <div>
+          <button onClick={() => handlePageChange(page + 1)}>
+            Next <i className="fa-solid fa-arrow-right-long"></i>{" "}
+          </button>
+        </div>
       </div>
     </div>
   );
