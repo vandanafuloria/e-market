@@ -776,7 +776,7 @@ header span i {
   }
   .product {
     max-width: 300px;
-    margin: auto;
+    margin: 10px;
   }
   .products img {
     width: 100px;
@@ -812,7 +812,7 @@ header span i {
   }
   .products {
     padding: 0;
-    margin: 1.5rem;
+    margin: 1rem;
   }
   .tags > div span {
     font-size: 0.7rem;
