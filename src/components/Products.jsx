@@ -40,7 +40,7 @@ export default function Products({ cat, onClick }) {
         src={sidebar}
         onClick={onClick}
       />
-      <h3>Our Featured Products</h3>
+      <h3 className="headings">Our Featured Products</h3>
 
       <div className="products-container">
         {products.map((product) => {

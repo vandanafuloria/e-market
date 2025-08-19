@@ -63,6 +63,7 @@
   display: flex;
   padding: 10px;
 }
+
 header span i {
   cursor: pointer;
   font-size: 2rem;
@@ -311,7 +312,8 @@ header span i {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -333,6 +335,9 @@ header span i {
   color: white;
   background: red;
   font-weight: 700;
+}
+.cart-logo i {
+  color: purple;
 }
 .tagsName {
   display: flex;
@@ -731,15 +736,15 @@ header span i {
   }
 }
 @media (max-width: 480px) {
-  * {
-    font-size: 0.9rem;
-  }
   .content {
     padding-top: 10rem;
   }
+  .products > h3 {
+    font-size: 1.5rem;
+  }
   .content-left h1 {
     padding-top: 5rem;
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .tag-sidebar {
     width: 50px;
@@ -769,21 +774,19 @@ header span i {
   .discount-badge,
   .stock-badge {
     padding: 3px 6px;
-    font-size: 0.3rem;
+    font-size: 1rem;
   }
   .products > img {
     width: 20px;
   }
   .product {
     max-width: 300px;
-    margin: 10px;
+    margin: 10px auto;
   }
-  .products img {
-    width: 100px;
-  }
-  .products h3 {
+
+  /* .products h3 {
     font-size: 1rem;
-  }
+  } */
   .products > img {
     width: 20px;
   }
@@ -803,13 +806,7 @@ header span i {
   .product {
     padding-top: 1.5rem;
   }
-  .product h3 {
-    font-size: 0.7rem;
-  }
-  .buttons button {
-    font-size: 0.4rem !important;
-    font-weight: 300;
-  }
+
   .products {
     padding: 0;
     margin: 1rem;
@@ -820,7 +817,6 @@ header span i {
   }
   .btn {
     font-weight: 900 !important;
-    font-size: 0.8rem !important;
   }
   .buttons {
     flex-direction: column;
@@ -829,11 +825,17 @@ header span i {
     padding: 5px 10px;
   }
   .heart {
-    font-size: 0.8rem;
+    font-size: 0.4rem;
+  }
+  .btn-primary {
+    font-size: 3rem important;
   }
 
   .img {
     min-height: fit-content;
+  }
+  .buttons {
+    flex-direction: row;
   }
 }
 
